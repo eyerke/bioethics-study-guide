@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bioethics Study Guide — Papers 1–4</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://js.puter.com/v2/"></script>
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --sub: #3a3a3a;
+    --muted: #8a8a8a;
+    --accent: #0a0a0a;        /* monochrome — accent is pure black */
+    --accent-light: #ffffff;  /* used on dark backgrounds */
+    --paper: #ffffff;
+    --paper-edge: #f4f4f2;
+    --rule: #0a0a0a;
+    --rule-soft: #d8d8d8;
+    --soft: #f4f4f2;
+    --pill-bg: #ededeb;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --display: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+    --body: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #e8e8e6;
+    font-family: var(--body);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11", "tnum";
+  }
+
+  /* PAGE — strict 8.5 × 11 with locked uniform margins.
+     Outer page is the trim size. All padding is identical on every side.
+     Header & footer live INSIDE the padding zone so nothing ever drifts. */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0.5in auto;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+    padding: 1.05in 0.95in 1.05in 0.95in;
+    position: relative;
+    overflow: visible;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top hairline rule */
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0.6in; left: 0.95in; right: 0.95in;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  /* Bottom hairline rule */
+  .page::after {
+    content: "";
+    position: absolute;
+    bottom: 0.7in; left: 0.95in; right: 0.95in;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .page-num {
+    position: absolute;
+    bottom: 0.42in;
+    left: 0.95in; right: 0.95in;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--display);
+    font-size: 8pt;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .page-num::before {
+    content: "Bioethics — A Study Guide";
+  }
+
+  .running-head {
+    position: absolute;
+    top: 0.42in;
+    left: 0.95in; right: 0.95in;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--display);
+    font-size: 8pt;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Content body — hard capped so nothing overflows */
+  .body {
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: var(--sub);
+    flex: 1 1 auto;
+    overflow: hidden;
+    min-height: 0;
+    margin-top: 0.05in;
+    padding-top: 0.05in;
+  }
+  .body p { margin: 0 0 8px; }
+  .body strong { color: var(--ink); font-weight: 600; }
+
+  /* COVER PAGE — Swiss editorial */
+  .cover {
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
+    padding: 0.85in;
+    background: var(--paper);
+  }
+  .cover .running-head { color: var(--ink); }
+  .cover-eyebrow {
+    font-family: var(--display);
+    font-size: 9pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 600;
+    margin: 0.5in 0 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cover-eyebrow::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--ink);
+  }
+  .cover-title {
+    font-family: var(--display);
+    font-size: 92pt;
+    font-weight: 800;
+    line-height: 0.92;
+    color: var(--ink);
+    margin: 0.45in 0 0.18in;
+    letter-spacing: -0.035em;
+  }
+  .cover-title em {
+    color: var(--accent);
+    font-style: normal;
+  }
+  .cover-sub {
+    font-family: var(--display);
+    font-size: 18pt;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 400;
+    max-width: 5.5in;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .cover-divider { display: none; }
+  .cover-papers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    width: 100%;
+    margin-top: auto;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .cover-paper {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--ink);
+    padding: 0.22in 0.16in;
+    text-align: left;
+  }
+  .cover-paper:last-child { border-right: none; }
+  .cover-paper-num {
+    font-family: var(--display);
+    font-size: 36pt;
+    color: var(--ink);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+  .cover-paper-title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 12px;
+    letter-spacing: -0.005em;
+  }
+  .cover-paper-desc {
+    font-size: 7.5pt;
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    font-size: 7.5pt;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* SECTION DIVIDER PAGES — Swiss editorial */
+  .divider {
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
+    background: var(--paper);
+    padding: 0.85in;
+  }
+  .divider-num {
+    font-family: var(--display);
+    font-size: 480pt;
+    line-height: 0.78;
+    color: var(--ink);
+    font-weight: 900;
+    margin: 0.3in 0 0 -0.12in;
+    opacity: 1;
+    letter-spacing: -0.06em;
+  }
+  .divider-label {
+    font-family: var(--display);
+    font-size: 9pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 600;
+    margin-top: 0.5in;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .divider-label::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--ink);
+  }
+  .divider-title {
+    font-family: var(--display);
+    font-size: 56pt;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0.18in 0 0.28in;
+    line-height: 0.95;
+    max-width: 6.5in;
+    letter-spacing: -0.035em;
+  }
+  .divider-title em { color: var(--accent); font-style: normal; }
+  .divider-blurb {
+    font-family: var(--display);
+    font-size: 16pt;
+    font-weight: 400;
+    color: var(--sub);
+    max-width: 5.5in;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .divider-rule { display: none; }
+
+  /* CONTENT PAGES */
+  .header-block {
+    margin: 0.1in 0 0.22in;
+    padding-bottom: 0.18in;
+    border-bottom: 1px solid var(--ink);
+    flex: 0 0 auto;
+  }
+  .lesson-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .lesson-tag::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--ink);
+  }
+  .lesson-title {
+    font-family: var(--display);
+    font-size: 32pt;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 0.98;
+    margin: 0 0 8px;
+    letter-spacing: -0.025em;
+  }
+  .lesson-sub {
+    font-family: var(--display);
+    font-size: 12pt;
+    color: var(--sub);
+    margin: 0;
+    line-height: 1.35;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    max-width: 6in;
+  }
+
+  .principle {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 16px 20px;
+    margin: 12px 0;
+    border-radius: 0;
+  }
+  .principle-label {
+    font-family: var(--display);
+    font-size: 7pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 600;
+    margin-bottom: 8px;
+    opacity: 0.55;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .principle-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--paper);
+    opacity: 0.25;
+  }
+  .principle-text {
+    font-family: var(--display);
+    font-size: 14pt;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--paper);
+    line-height: 1.32;
+    letter-spacing: -0.012em;
+  }
+
+  h3.section {
+    font-family: var(--display);
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 700;
+    margin: 16px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--ink);
+  }
+  h3.section::before {
+    content: counter(section-counter, decimal-leading-zero);
+    counter-increment: section-counter;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+  }
+  .body { counter-reset: section-counter; }
+
+  ul.points { margin: 6px 0 9px; padding: 0; list-style: none; }
+  ul.points li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 5px;
+    font-size: 9pt;
+    line-height: 1.5;
+    color: var(--sub);
+  }
+  ul.points li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--ink);
+    font-size: 9pt;
+    top: 0;
+    font-weight: 700;
+  }
+  ul.points li strong { color: var(--ink); }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 9px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .card {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--ink);
+    padding: 12px 14px 12px 0;
+    border-radius: 0;
+    margin-bottom: 8px;
+  }
+  .grid-2 .card:first-child { padding-right: 14px; }
+  .grid-2 .card:last-child { border-right: none; padding-left: 14px; padding-right: 0; }
+  .card-label {
+    font-family: var(--display);
+    font-size: 7pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .card-body { font-size: 8.5pt; line-height: 1.5; color: var(--sub); }
+  .card-body strong { color: var(--ink); font-weight: 600; }
+  .grid-2 .card { margin-bottom: 0; }
+
+  /* Solo card outside grid: full-width with hairline rules */
+  .body > .card,
+  .body > div > .card {
+    border: none;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 12px 0;
+  }
+
+  .objection {
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--accent);
+    padding: 6px 14px;
+    margin: 8px 0;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: var(--sub);
+    border-radius: 0;
+  }
+  .objection strong { color: var(--ink); font-weight: 700; }
+
+  .apply-box {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 16px 20px;
+    border-radius: 0;
+    margin: 14px 0 0;
+  }
+  .apply-box .apply-label {
+    font-family: var(--display);
+    font-size: 7pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.55;
+  }
+  .apply-box .apply-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--paper);
+    opacity: 0.25;
+  }
+  .apply-box ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 8.5pt;
+    line-height: 1.6;
+    color: var(--paper);
+  }
+  .apply-box ol li {
+    margin-bottom: 5px;
+    padding-left: 4px;
+  }
+  .apply-box ol li::marker { color: var(--paper); font-weight: 600; }
+  .apply-box strong { color: var(--paper); font-weight: 700; }
+
+  .pull-quote {
+    font-family: var(--display);
+    font-style: normal;
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--ink);
+    border: none;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 12px 0;
+    margin: 12px 0;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+    margin: 9px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  table.compare th, table.compare td {
+    border: none;
+    border-bottom: 1px solid var(--rule-soft);
+    border-right: 1px solid var(--rule-soft);
+    padding: 7px 9px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.45;
+    color: var(--sub);
+  }
+  table.compare td:last-child, table.compare th:last-child { border-right: none; }
+  table.compare tr:last-child td { border-bottom: none; }
+  table.compare th {
+    background: transparent;
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  table.compare strong { color: var(--ink); }
+
+  .case-box {
+    background: var(--soft);
+    border: none;
+    border-left: 2px solid var(--ink);
+    padding: 10px 14px;
+    margin: 9px 0;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    font-style: normal;
+    color: var(--sub);
+    border-radius: 0;
+  }
+  .case-box strong { color: var(--ink); font-weight: 700; }
+
+  .toc-list { margin-top: 0.25in; }
+  .toc-section {
+    margin-bottom: 22px;
+  }
+  .toc-section-label {
+    font-family: var(--display);
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .toc-section-label .toc-section-num {
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 5px 0;
+    font-size: 10pt;
+    color: var(--sub);
+  }
+  .toc-item .dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--rule-soft);
+    margin: 0 8px;
+    transform: translateY(-3px);
+  }
+  .toc-item .num {
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  /* ===== AI INTERACTIVE QUIZ (web only, Swiss minimal) ===== */
+  .ai-quiz {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0.5in auto;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+    padding: 0.85in;
+    position: relative;
+    overflow: hidden;
+  }
+  .ai-quiz::before {
+    content: "";
+    position: absolute;
+    top: 0.42in; left: 0.85in; right: 0.85in;
+    height: 1px;
+    background: var(--ink);
+  }
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 0;
+    margin-bottom: 18px;
+    margin-top: 0.05in;
+  }
+  .ai-badge::before {
+    content: "▲";
+    font-size: 9pt;
+  }
+  .ai-intro {
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 14px 0;
+    margin: 18px 0 28px;
+    border-radius: 0;
+    font-size: 10pt;
+    line-height: 1.6;
+    color: var(--sub);
+    max-width: 6in;
+  }
+  .ai-q {
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--ink);
+    border-radius: 0;
+    padding: 24px 0 26px;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 0.7in 1fr;
+    gap: 0 16px;
+  }
+  .ai-q-num {
+    font-family: var(--display);
+    font-size: 8pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 700;
+    grid-column: 1;
+    grid-row: 1 / span 99;
+    font-variant-numeric: tabular-nums;
+    align-self: start;
+  }
+  .ai-q > *:not(.ai-q-num) { grid-column: 2; }
+  .ai-q:last-of-type { border-bottom: 1px solid var(--ink); }
+  .ai-q-text {
+    font-family: var(--display);
+    font-size: 16pt;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 14px;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+  }
+  .ai-q textarea {
+    width: 100%;
+    min-height: 90px;
+    border: none;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+    border-radius: 0;
+    padding: 12px 0;
+    font-family: var(--body);
+    font-size: 10pt;
+    line-height: 1.55;
+    color: var(--ink);
+    background: transparent;
+    resize: vertical;
+    transition: border-color 0.2s;
+  }
+  .ai-q textarea:focus {
+    outline: none;
+    border-top-color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+  .ai-grade-btn {
+    margin-top: 14px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 11px 26px;
+    font-family: var(--display);
+    font-size: 8.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .ai-grade-btn:hover {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--ink);
+  }
+  .ai-grade-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+  .ai-feedback {
+    margin-top: 18px;
+    padding: 16px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 0;
+    font-size: 9.5pt;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    display: none;
+  }
+  .ai-feedback.visible { display: block; animation: fadeIn 0.4s ease; }
+  .ai-feedback strong { color: var(--paper); font-weight: 700; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .ai-disclaimer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--ink);
+    font-size: 8pt;
+    color: var(--muted);
+    line-height: 1.5;
+    text-align: left;
+    letter-spacing: 0.04em;
+  }
+
+  @page {
+    size: 8.5in 11in;
+    margin: 0;
+  }
+  @media print {
+    body { background: white; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-child { page-break-after: auto; }
+    .ai-quiz, .no-print { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<div class="page cover">
+  <div class="cover-eyebrow">A Student Companion to Bioethics</div>
+  <h1 class="cover-title">The Ethics of <em>Life</em><br>&amp; Medicine</h1>
+  <div class="cover-divider"></div>
+  <div class="cover-sub">A Visual Study Guide to Papers 1 – 4</div>
+
+  <div class="cover-papers">
+    <div class="cover-paper">
+      <div class="cover-paper-num">I</div>
+      <div class="cover-paper-title">Moral Theories</div>
+      <div class="cover-paper-desc">Utilitarianism · Kant · Virtue · DCT · Natural Law</div>
+    </div>
+    <div class="cover-paper">
+      <div class="cover-paper-num">II</div>
+      <div class="cover-paper-title">Bioethical Principles</div>
+      <div class="cover-paper-desc">Autonomy · Consent · Truth-telling · Liberty</div>
+    </div>
+    <div class="cover-paper">
+      <div class="cover-paper-num">III</div>
+      <div class="cover-paper-title">Justice &amp; Healthcare</div>
+      <div class="cover-paper-desc">Rawls · Nozick · Allocation · Fair Innings</div>
+    </div>
+    <div class="cover-paper">
+      <div class="cover-paper-num">IV</div>
+      <div class="cover-paper-title">Genetics &amp; the Future</div>
+      <div class="cover-paper-desc">Purdy · Resnik · Therapy vs. Enhancement</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TOC ===================== -->
+<div class="page">
+  <div class="running-head"><span>Bioethics Study Guide</span><span>Contents</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Navigation</div>
+    <h2 class="lesson-title">Table of Contents</h2>
+    <p class="lesson-sub">A roadmap to every key idea, applied tool, and objection.</p>
+  </div>
+
+  <div class="toc-list">
+    <div class="toc-section">
+      <div class="toc-section-label">Paper I — Foundational Moral Theories</div>
+      <div class="toc-item"><span>Introduction to Ethics &amp; Bioethics</span><span class="dots"></span><span class="num">04</span></div>
+      <div class="toc-item"><span>Utilitarianism</span><span class="dots"></span><span class="num">05</span></div>
+      <div class="toc-item"><span>Kantian Ethics</span><span class="dots"></span><span class="num">06</span></div>
+      <div class="toc-item"><span>Virtue Ethics</span><span class="dots"></span><span class="num">07</span></div>
+      <div class="toc-item"><span>Divine Command &amp; Natural Law</span><span class="dots"></span><span class="num">08</span></div>
+    </div>
+
+    <div class="toc-section">
+      <div class="toc-section-label">Paper II — Principles of Practice</div>
+      <div class="toc-item"><span>The Belmont Report &amp; History</span><span class="dots"></span><span class="num">10</span></div>
+      <div class="toc-item"><span>Autonomy &amp; Paternalism</span><span class="dots"></span><span class="num">11</span></div>
+      <div class="toc-item"><span>Informed Consent</span><span class="dots"></span><span class="num">12</span></div>
+      <div class="toc-item"><span>Truth-telling &amp; Conscientious Objection</span><span class="dots"></span><span class="num">13</span></div>
+      <div class="toc-item"><span>Mill's Liberty &amp; the BIID Challenge</span><span class="dots"></span><span class="num">14</span></div>
+    </div>
+
+    <div class="toc-section">
+      <div class="toc-section-label">Paper III — Justice in Healthcare</div>
+      <div class="toc-item"><span>Healthcare in the US: The Crisis</span><span class="dots"></span><span class="num">16</span></div>
+      <div class="toc-item"><span>Justice, Rights &amp; Distribution</span><span class="dots"></span><span class="num">17</span></div>
+      <div class="toc-item"><span>Rawls vs. Nozick</span><span class="dots"></span><span class="num">18</span></div>
+      <div class="toc-item"><span>Micro Allocation &amp; Liver Transplants</span><span class="dots"></span><span class="num">19</span></div>
+      <div class="toc-item"><span>The Value of Life &amp; Fair Innings</span><span class="dots"></span><span class="num">20</span></div>
+    </div>
+
+    <div class="toc-section">
+      <div class="toc-section-label">Paper IV — Genetics &amp; Future Persons</div>
+      <div class="toc-item"><span>Genetic Testing &amp; Manipulation</span><span class="dots"></span><span class="num">22</span></div>
+      <div class="toc-item"><span>Purdy on Reproductive Risk</span><span class="dots"></span><span class="num">23</span></div>
+      <div class="toc-item"><span>Resnik on Therapy vs. Enhancement</span><span class="dots"></span><span class="num">24</span></div>
+      <div class="toc-item"><span>Eugenics &amp; the Rights of the Unborn</span><span class="dots"></span><span class="num">25</span></div>
+    </div>
+  </div>
+  <div class="page-num">i i</div>
+</div>
+
+<!-- ===================== PAPER 1 DIVIDER ===================== -->
+<div class="page divider">
+  <div class="divider-num">I</div>
+  <div class="divider-rule"></div>
+  <div class="divider-label">Paper One</div>
+  <h2 class="divider-title">Foundational Moral Theories</h2>
+  <p class="divider-blurb">"If we know why an action is wrong, we have a tool to use when the answer is unclear."</p>
+</div>
+
+<!-- ===================== P1 - INTRO ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper I · Moral Theories</span><span>Lesson 1.1</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 1.1</div>
+    <h2 class="lesson-title">Introduction to Ethics &amp; Bioethics</h2>
+    <p class="lesson-sub">Why moral norms are not just rules, laws, or etiquette.</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">Core Definition</div>
+      <div class="principle-text">Ethics is the philosophical study of morality — the aspect of life concerned with evaluating actions through norms that aim to be universal, impartial, and dominant.</div>
+    </div>
+
+    <h3 class="section">Three Marks of a Moral Norm</h3>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Normative Dominance</div>
+        <div class="card-body">Moral norms override other norms. A law that mandates harm to a minority is illegitimate <em>because</em> morality outranks legality.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Universality</div>
+        <div class="card-body">Moral truths apply everywhere — here, abroad, on Mars. Unlike a game's rules, there is no jurisdiction.</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 0;">
+      <div class="card-label">Impartiality</div>
+      <div class="card-body">No one is morally privileged. If lying is wrong for you, it is wrong for me in the same situation.</div>
+    </div>
+
+    <h3 class="section">The Four Branches of Ethics</h3>
+    <ul class="points">
+      <li><strong>Value Theory</strong> — What is good? What is worth pursuing?</li>
+      <li><strong>Normative Ethics</strong> — What standards make an action right or wrong?</li>
+      <li><strong>Metaethics</strong> — What makes moral claims true at all?</li>
+      <li><strong>Applied Ethics</strong> — Concrete problems (this is where <strong>bioethics</strong> lives).</li>
+    </ul>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply This Lesson</div>
+      <ol>
+        <li>When facing a bioethics case, first check: is this a moral question, or a legal/etiquette question dressed up as one?</li>
+        <li>Test your reasoning against universality and impartiality. Would you accept the conclusion if you were in the other party's position?</li>
+        <li>Use logic and argument — not religion or ideology — so anyone can join the debate.</li>
+      </ol>
+    </div>
+
+    <div class="pull-quote">"Science can describe the facts. Only ethics can tell us what we ought to do about them."</div>
+
+  </div>
+  <div class="page-num">04</div>
+</div>
+
+<!-- ===================== P1 - UTILITARIANISM ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper I · Moral Theories</span><span>Lesson 1.2</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 1.2</div>
+    <h2 class="lesson-title">Utilitarianism</h2>
+    <p class="lesson-sub">The morality of an action lies entirely in its consequences.</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">The Principle of Utility</div>
+      <div class="principle-text">An action is morally required if, of all available actions, it maximizes the good and minimizes the bad for <em>all</em> those affected.</div>
+    </div>
+
+    <h3 class="section">Key Points to Remember</h3>
+    <ul class="points">
+      <li>Belongs to the broader family of <strong>consequentialism</strong> — intentions don't matter, only results.</li>
+      <li>Considers <strong>everyone</strong> affected, not just yourself. The "net" overall benefit is what counts.</li>
+      <li>Maximizing utility is a <strong>moral obligation</strong>, not merely permissible.</li>
+      <li>Classical utilitarians (Bentham, Mill) embraced <strong>hedonism</strong>: good = pleasure, bad = pain.</li>
+    </ul>
+
+    <h3 class="section">Worked Example — Lying</h3>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Lying on a CV</div>
+        <div class="card-body">Many lose (better candidates, the company, society). One gains (you). Net negative → <strong>impermissible</strong>.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Doctor &amp; terminal patient</div>
+        <div class="card-body">If the lie spares depression and yields more joy in the patient's last months, the net result is positive → <strong>required</strong>.</div>
+      </div>
+    </div>
+
+    <h3 class="section">Two Classic Counterexamples</h3>
+    <div class="objection">
+      <strong>The Utilitarian Surgeon.</strong> Five dying patients each need an organ. A healthy patient walks in for a checkup. Killing one to save five maximizes utility — but it is monstrous. Utility seemingly demands the unthinkable.
+    </div>
+    <div class="objection">
+      <strong>The Sheriff &amp; the Mob.</strong> Framing one innocent man to satisfy a lynch mob saves many lives. Utility says yes; justice says absolutely not. The theory ignores individual rights.
+    </div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply Utilitarianism</div>
+      <ol>
+        <li>List every party affected by each available action.</li>
+        <li>Estimate net pleasure/pain (or well-being) for each option.</li>
+        <li>Pick the action with the highest net good.</li>
+        <li>Sanity-check: would the result violate basic rights or justice? If yes, the theory may be missing something.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">05</div>
+</div>
+
+<!-- ===================== P1 - KANT ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper I · Moral Theories</span><span>Lesson 1.3</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 1.3</div>
+    <h2 class="lesson-title">Kantian Ethics</h2>
+    <p class="lesson-sub">Morality is grounded in reason, duty, and the dignity of persons.</p>
+  </div>
+  <div class="body">
+
+    <p>For Kant, only the <strong>good will</strong> — acting from the intention to do what is right because it is right — has unconditional moral worth. The morally good agent acts from <strong>duty</strong>, guided by the <strong>Categorical Imperative</strong>.</p>
+
+    <div class="principle">
+      <div class="principle-label">Formula I — Universal Law of Nature</div>
+      <div class="principle-text">Act only on those maxims that you can reasonably will become a universal law.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-label">Formula II — Humanity</div>
+      <div class="principle-text">Always treat persons — yourself or others — as ends in themselves, never merely as a means.</div>
+    </div>
+
+    <h3 class="section">Key Concepts</h3>
+    <ul class="points">
+      <li><strong>Maxim</strong> — the personal rule behind your action ("I will lie to get what I want").</li>
+      <li><strong>Universalizable</strong> — the maxim still makes sense if everyone followed it. Lying universalized destroys trust, so it self-destructs.</li>
+      <li><strong>"Merely" as a means</strong> — using someone is fine if they consent and are respected (e.g., paying a waiter). It's wrong only when their autonomy is bypassed.</li>
+      <li>Morality and rationality are one and the same: to be moral is to be rational.</li>
+    </ul>
+
+    <h3 class="section">Objections</h3>
+    <div class="objection">
+      <strong>The Sadomasochist.</strong> Universal Law fails when an agent willingly accepts being harmed in return — the maxim "I'll torture others for pleasure" can be universalized by them. Formula I can't catch every wrong.
+    </div>
+    <div class="objection">
+      <strong>The Lifeboat &amp; the Inquiring Murderer.</strong> Kant forbids lying even to save a friend's life from a murderer at the door. The absoluteness of duty produces grotesque results.
+    </div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply Kant</div>
+      <ol>
+        <li>State your maxim plainly: "I will do X in order to Y."</li>
+        <li>Ask: could this become a universal law without contradiction?</li>
+        <li>Then ask: does my action treat every person involved as a rational end, never as a tool?</li>
+        <li>If both checks pass — the action is permissible (perhaps required).</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">06</div>
+</div>
+
+<!-- ===================== P1 - VIRTUE ETHICS ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper I · Moral Theories</span><span>Lesson 1.4</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 1.4</div>
+    <h2 class="lesson-title">Virtue Ethics</h2>
+    <p class="lesson-sub">What would a virtuous person — acting in character — do?</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">The Core Claim</div>
+      <div class="principle-text">An act is morally right just because it is one a virtuous person, acting in character, would do in that situation.</div>
+    </div>
+
+    <p>Inherited from Socrates, Plato, and especially <strong>Aristotle</strong>, virtue ethics judges <em>persons</em> first and actions only indirectly. The goal is to <strong>become</strong> good, not merely to follow a rule.</p>
+
+    <h3 class="section">Key Ideas</h3>
+    <ul class="points">
+      <li><strong>Virtue</strong> — an excellent, deeply embedded trait of character (honesty, courage, justice, wisdom, benevolence, self-control).</li>
+      <li><strong>Moral exemplar</strong> — an idealized person whose dispositions guide our judgment.</li>
+      <li><strong>The Golden Mean</strong> — virtues sit between two vices. Courage lies between cowardice and recklessness.</li>
+      <li><strong>Phronesis (practical wisdom)</strong> — the master virtue that knows when and how to apply the others.</li>
+    </ul>
+
+    <h3 class="section">Three Cashiers — Only One is Honest</h3>
+    <table class="compare">
+      <tr><th>Person</th><th>Why she doesn't steal</th><th>Truly virtuous?</th></tr>
+      <tr><td>Joan</td><td>Afraid of getting caught</td><td>No</td></tr>
+      <tr><td>Jane</td><td>Following the rules</td><td>No</td></tr>
+      <tr><td>Jean</td><td>The thought sickens her — stealing is simply not who she is</td><td>Yes</td></tr>
+    </table>
+    <p>Virtue isn't <em>action</em> — it's the whole architecture of feelings, reactions, and choices that produce the action.</p>
+
+    <h3 class="section">Strength: Flexibility</h3>
+    <p>Where Utilitarianism forces the surgeon to harvest organs and Kant forces you to tell the murderer the truth, the virtuous person knows: <em>be magnanimous, but not reckless; be honest, unless honesty endangers the innocent.</em></p>
+
+    <div class="objection">
+      <strong>Objection.</strong> Who counts as a moral exemplar? What if two virtuous agents disagree? Virtue ethics gives less concrete decision-procedure than its rivals.
+    </div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply Virtue Ethics</div>
+      <ol>
+        <li>Identify the relevant virtues at stake (courage? honesty? compassion?).</li>
+        <li>Ask: what would a person who fully possesses these traits — not merely fakes them — actually do here?</li>
+        <li>Aim for the golden mean between extremes; rely on practical wisdom in the gray zone.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">07</div>
+</div>
+
+<!-- ===================== P1 - DCT + NATURAL LAW ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper I · Moral Theories</span><span>Lesson 1.5</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lessons 1.5 – 1.6</div>
+    <h2 class="lesson-title">Divine Command &amp; Natural Law</h2>
+    <p class="lesson-sub">Two religiously-rooted answers — and the dilemmas they face.</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">Divine Command Theory (DCT)</div>
+      <div class="principle-text">An act is morally required just because God commands it, and immoral just because God forbids it.</div>
+    </div>
+
+    <h3 class="section">The Euthyphro Dilemma</h3>
+    <p>Plato's challenge: <em>Does God command an action because it is right, or is it right because God commands it?</em></p>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Horn 1</div>
+        <div class="card-body">If God commands it because it's right, then morality is grounded in something <strong>other</strong> than God's commands. DCT collapses.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Horn 2</div>
+        <div class="card-body">If it's right because God commands it, morality becomes <strong>arbitrary</strong> — God could make murder good by decree.</div>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-label">Natural Law Theory (Aquinas)</div>
+      <div class="principle-text">An act is morally right just because it is consistent with the Natural Law — the rational order built into our nature.</div>
+    </div>
+
+    <h3 class="section">Core Commitments</h3>
+    <ul class="points">
+      <li>All things have <strong>natural purposes</strong> (telos). For humans: life, procreation, knowledge, society, seeking God.</li>
+      <li>Acts that promote these purposes are good; those that frustrate them are wrong.</li>
+      <li><strong>Reason</strong> is our God-given tool for discovering this law — the theory is accessible to anyone, religious or not.</li>
+      <li>Avoids the Euthyphro dilemma: God doesn't command arbitrarily — He creates a nature with morality embedded in it.</li>
+    </ul>
+
+    <h3 class="section">Two Famous Objections (Hume's Is–Ought Gap)</h3>
+    <div class="objection">
+      <strong>What's natural isn't always good.</strong> Sexual aggression may "naturally" propagate genes, but it is plainly evil.
+    </div>
+    <div class="objection">
+      <strong>What's unnatural isn't always bad.</strong> Wearing glasses, using contraception, or wearing headphones thwarts a "natural" purpose without any wrongness.
+    </div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply These Theories</div>
+      <ol>
+        <li>For DCT: identify the source command and ask whether it survives the Euthyphro test.</li>
+        <li>For Natural Law: identify the natural purpose at stake and ask whether the act fulfills or frustrates it.</li>
+        <li>Always be ready to challenge the move from "is" to "ought" — Hume's warning.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">08</div>
+</div>
+
+<!-- ===================== PAPER 2 DIVIDER ===================== -->
+<div class="page divider">
+  <div class="divider-num">II</div>
+  <div class="divider-rule"></div>
+  <div class="divider-label">Paper Two</div>
+  <h2 class="divider-title">Principles of Practice</h2>
+  <p class="divider-blurb">"Over himself, over his own body and mind, the individual is sovereign." — J.S. Mill</p>
+</div>
+
+<!-- ===================== P2 - BELMONT ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper II · Principles</span><span>Lesson 2.1</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 2.1</div>
+    <h2 class="lesson-title">The Belmont Report</h2>
+    <p class="lesson-sub">How public outrage built the foundations of modern bioethics.</p>
+  </div>
+  <div class="body">
+
+    <p>In 1974 Congress created the National Commission for the Protection of Human Subjects. Its 1976 <strong>Belmont Report</strong> articulated three principles that govern modern research and clinical ethics.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">1. Respect for Persons</div>
+        <div class="card-body">Acknowledge people's capacity for self-determination and protect those with diminished autonomy.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">2. Beneficence</div>
+        <div class="card-body">Do no harm; maximize possible benefits and minimize possible harms.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">3. Justice</div>
+      <div class="card-body">Distribute benefits and burdens of research equitably, free of discrimination and bias.</div>
+    </div>
+
+    <h3 class="section">The Cases that Forced the Principles</h3>
+    <div class="case-box">
+      <strong>Nazi Medical Experiments (WWII).</strong> Prisoners and children subjected to lethal experiments without consent. The aftermath produced the <strong>Nuremberg Code</strong> (1947) — voluntary consent, no high-risk-of-death experiments, social value required.
+    </div>
+    <div class="case-box">
+      <strong>Tuskegee Study (1932–1972).</strong> The U.S. Public Health Service watched 399 African American men suffer untreated syphilis for 40 years — even after penicillin existed. 28 died of syphilis directly; 100 from complications; 40 wives infected; 19 children born with congenital syphilis. The outrage produced the Belmont Report.
+    </div>
+
+    <div class="pull-quote">"Both cases failed all three principles at once: autonomy denied, harm inflicted, and burdens dumped on the disadvantaged."</div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply Belmont</div>
+      <ol>
+        <li>Run every research design or clinical action through all three principles.</li>
+        <li>Ask: did the participants give informed, voluntary consent? Are benefits proportional to harms? Are vulnerable populations being singled out unjustly?</li>
+        <li>If even one principle is violated, the act is impermissible — even if outcomes are good.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">10</div>
+</div>
+
+<!-- ===================== P2 - AUTONOMY ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper II · Principles</span><span>Lesson 2.2</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 2.2</div>
+    <h2 class="lesson-title">Autonomy &amp; Paternalism</h2>
+    <p class="lesson-sub">When can we override a person's "free" choice — and when must we not?</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">Autonomy (auto + nomos = "self-rule")</div>
+      <div class="principle-text">The rational capacity of persons to determine their own lives, free from controlling influences.</div>
+    </div>
+
+    <h3 class="section">Three Conditions of an Autonomous Decision</h3>
+    <ul class="points">
+      <li><strong>Rational competence</strong> — the person can evaluate their situation and future well-being.</li>
+      <li><strong>Adequate information</strong> — accurate, complete, and understood.</li>
+      <li><strong>Freedom from coercion</strong> — no undue influence, threat, or manipulation.</li>
+    </ul>
+    <p>If <em>any</em> condition fails — even for a competent adult — the choice is not fully autonomous.</p>
+
+    <h3 class="section">Paternalism: When Helping Hurts</h3>
+    <p><strong>Paternalism</strong> is interfering with another person's autonomy "for their own good." It is sometimes justified (children, severely cognitively impaired adults), but never for competent adults capable of autonomous choice — even if their decision will harm them.</p>
+
+    <div class="case-box">
+      <strong>Elizabeth Bouvia (the case that became "Lisa").</strong> 25, quadriplegic from cerebral palsy, in constant pain. She entered a hospital asking for pain relief and refused to be fed. The hospital force-fed her. In 1986 the California Court of Appeal ruled she had a "constitutionally guaranteed right" to refuse treatment. Her intentions were declared <em>irrelevant</em>.
+    </div>
+
+    <h3 class="section">Watch Out: The Hippocratic Oath's Blind Spot</h3>
+    <p>Hippocrates emphasized beneficence and nonmaleficence, but said nothing about <em>respecting</em> the patient's perspective. That makes it inherently paternalistic. Modern bioethics corrects this by adding autonomy as the equal partner of beneficence.</p>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>Test the three conditions of autonomy before honoring (or overriding) a refusal.</li>
+        <li>Distinguish lack of competence (genuine grounds for paternalism) from disagreement with the patient's values (no grounds).</li>
+        <li>If a competent adult refuses care, respect it — even if the refusal will lead to their death.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">11</div>
+</div>
+
+<!-- ===================== P2 - INFORMED CONSENT ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper II · Principles</span><span>Lesson 2.3</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 2.3</div>
+    <h2 class="lesson-title">Informed Consent</h2>
+    <p class="lesson-sub">Autonomy made operational in clinics and research labs.</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">Definition</div>
+      <div class="principle-text">Informed consent is the autonomous authorization of a medical intervention by an individual patient.</div>
+    </div>
+
+    <h3 class="section">Three Conditions of Valid Consent</h3>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Competence</div>
+        <div class="card-body">Capable of judgments about one's own healthcare and well-being.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Understanding</div>
+        <div class="card-body">Not just told the facts — actually grasps their meaning and significance.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Voluntariness</div>
+      <div class="card-body">Free from coercion, manipulation, or undue influence.</div>
+    </div>
+
+    <h3 class="section">Consent is a Process, Not a Form</h3>
+    <p>Don't confuse consent with the legal signature. The signed form is a snapshot; <strong>real consent</strong> is the ongoing conversation throughout treatment, including the patient's ability to pause or withdraw at any moment.</p>
+
+    <h3 class="section">Disagreements about Personal Values</h3>
+    <p>When doctor and patient share a goal but disagree about <em>means</em>, the doctor's expertise carries weight. When they disagree about <em>values</em> (e.g., "is bodily integrity worth dying for?"), they have <strong>equal authority</strong>. Doctors only know what is <em>medically</em> best, not what is best for the patient all-things-considered.</p>
+
+    <div class="case-box">
+      <strong>Mr. Johnson's toe.</strong> A diabetic refuses amputation of a gangrenous toe. If he refuses out of false belief about treatment (Scenarios 1 &amp; 2) — persuade. If he refuses because bodily wholeness is core to his identity (Scenario 3) — respect. The doctor's expertise stops at the boundary of personal values.
+    </div>
+
+    <h3 class="section">When Consent Cannot Be Obtained</h3>
+    <ul class="points">
+      <li>Ask: <em>If the patient could decide, would they consent?</em></li>
+      <li>Involve legal guardians who genuinely consider the patient's well-being.</li>
+      <li>In emergencies, reasonable assumptions of consent are permitted.</li>
+    </ul>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>Verify all three conditions before any major intervention.</li>
+        <li>Treat consent as continuous; check in and re-confirm.</li>
+        <li>Separate "is this medically advisable?" from "does this match the patient's values?" — only the patient owns the second answer.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">12</div>
+</div>
+
+<!-- ===================== P2 - TRUTH-TELLING + CONSCIENCE ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper II · Principles</span><span>Lesson 2.4</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lessons 2.4 – 2.5</div>
+    <h2 class="lesson-title">Truth-Telling &amp; Conscientious Objection</h2>
+    <p class="lesson-sub">Higgs on doctor-honesty; Wicclair on provider conscience.</p>
+  </div>
+  <div class="body">
+
+    <h3 class="section">Higgs: Lying to Patients is Almost Never Permissible</h3>
+    <p>Roger Higgs defines lying broadly — even silence or carefully crafted half-truths intended to mislead count as deceit. He rejects three common defenses of medical lying:</p>
+
+    <table class="compare">
+      <tr><th>Excuse for Lying</th><th>Higgs's Response</th></tr>
+      <tr><td>"The information is too complex."</td><td>Complexity does not erase the duty to inform. Patients can still make informed choices with imperfect understanding.</td></tr>
+      <tr><td>"Bad news is too distressing."</td><td>Distress is not a license to deceive. Patients consistently report being glad they were told the truth.</td></tr>
+      <tr><td>"Telling the truth will harm them."</td><td>The answer is <strong>better telling</strong>, not lying. Long-term harm from deception (eroded trust, bad decisions) outweighs short-term distress.</td></tr>
+    </table>
+
+    <div class="pull-quote">"Lying must be a last resort, and we should act as if we were to be called upon to defend the decision in public debate." — Higgs</div>
+
+    <h3 class="section">Conscientious Objection: Three Positions</h3>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Conscience Absolutism</div>
+        <div class="card-body">Providers have broad rights to refuse any procedure that violates conscience. No further obligations.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Incompatibilism</div>
+        <div class="card-body">Refusing legal medical care is incompatible with professional duty. Personal conscience cannot override the role.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Reasonable Accommodation (Wicclair's middle ground)</div>
+      <div class="card-body">Refusal is allowed <em>only</em> if the provider refers the patient to someone willing to perform the procedure, and the referral does not unduly burden the patient.</div>
+    </div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>For truth-telling: ask if the only goal of withholding is the patient's interest, and whether the same goal could be reached through more sensitive disclosure.</li>
+        <li>For conscience: weigh provider integrity against patient access. Does the patient have realistic alternatives? Is the referral genuine?</li>
+        <li>Remember: physicians hold a near-monopoly on legal access to many treatments — that creates a strong public duty.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">13</div>
+</div>
+
+<!-- ===================== P2 - MILL + BIID ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper II · Principles</span><span>Lesson 2.6</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 2.6</div>
+    <h2 class="lesson-title">Mill's Liberty &amp; the BIID Challenge</h2>
+    <p class="lesson-sub">When may society interfere with a person's choice?</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">The Harm Principle (Mill, On Liberty, 1859)</div>
+      <div class="principle-text">The only acceptable reason for interfering with individual liberty is to prevent harm to others.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-label">Corollary</div>
+      <div class="principle-text">No one is ever justified in interfering in conduct that affects only the individual themself.</div>
+    </div>
+
+    <p>Mill rules out paternalism for competent adults: their good, their happiness, even what others think is "wise" or "right" are <em>not</em> sufficient grounds. Society may persuade, reason, plead — never compel.</p>
+
+    <h3 class="section">Why Mill Wrote It</h3>
+    <p>To defend basic liberties (speech, conscience, association) against the new threat of <strong>tyranny of the majority</strong> in democratic societies.</p>
+
+    <h3 class="section">The BIID Test Case</h3>
+    <p><strong>Body Integrity Identity Disorder</strong>: a rare condition in which a person experiences a healthy limb as not their own and seeks amputation. Therapy and medication are largely ineffective. If denied, sufferers may attempt unsafe self-amputation.</p>
+
+    <h3 class="section">Arguments at Stake</h3>
+    <table class="compare">
+      <tr><th>Against Voluntary Amputation</th><th>For Voluntary Amputation</th></tr>
+      <tr><td><strong>Beneficence:</strong> Removing a healthy limb is harm; doctors must do no harm.</td><td><strong>Harm Minimization:</strong> Refusing risks worse self-harm. Surgery is the lesser evil.</td></tr>
+      <tr><td><strong>Rational Desires:</strong> No reasonable person could expect amputation to improve well-being; therefore the choice isn't autonomous.</td><td><strong>Autonomy:</strong> The request is informed, long-standing, and harms no one else — exactly what Mill protects.</td></tr>
+    </table>
+
+    <h3 class="section">Why It Matters</h3>
+    <p>BIID stress-tests Mill: if you accept his harm principle without exception, voluntary amputation must be permitted. If you refuse, you owe an account of where Mill's principle stops.</p>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply Mill</div>
+      <ol>
+        <li>Identify who is actually harmed by the act. Only third-party harm justifies interference.</li>
+        <li>Reject paternalism for competent adults — even when their choice seems unwise.</li>
+        <li>Test edge cases (BIID, addiction, voluntary slavery) to find your real intuitions about Mill's limits.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">14</div>
+</div>
+
+<!-- ===================== PAPER 3 DIVIDER ===================== -->
+<div class="page divider">
+  <div class="divider-num">III</div>
+  <div class="divider-rule"></div>
+  <div class="divider-label">Paper Three</div>
+  <h2 class="divider-title">Justice in Healthcare</h2>
+  <p class="divider-blurb">"Do considerations of justice support a right to healthcare?"</p>
+</div>
+
+<!-- ===================== P3 - HEALTHCARE CRISIS ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper III · Justice</span><span>Lesson 3.1</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 3.1</div>
+    <h2 class="lesson-title">Healthcare in the United States</h2>
+    <p class="lesson-sub">Why the question of distributive justice is urgent.</p>
+  </div>
+  <div class="body">
+
+    <h3 class="section">The Numbers (OECD &amp; Commonwealth Fund)</h3>
+    <ul class="points">
+      <li>The U.S. spends nearly <strong>twice</strong> the OECD average on healthcare — yet has the lowest life expectancy and highest suicide rates among 11 peer nations.</li>
+      <li>Highest rate of preventable hospitalizations and avoidable deaths among peers.</li>
+      <li><strong>24.3 million</strong> adults aged 19–64 were uninsured in early 2020.</li>
+      <li><strong>18.5 million</strong> insured adults experienced a coverage gap that year.</li>
+      <li>Nearly <strong>1 in 10</strong> American adults — about 23 million — owes significant medical debt.</li>
+    </ul>
+
+    <h3 class="section">Structural Failures</h3>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Employer-Tied Insurance</div>
+        <div class="card-body">Workers have little choice over plans; lose coverage when they lose a job.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Coverage Denials</div>
+        <div class="card-body">Treatments deemed "unnecessary" or "out of network" leave patients with full bills.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Price Opacity</div>
+        <div class="card-body">Patients can't compare prices in advance, enabling severe price gouging.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Excluded Care</div>
+        <div class="card-body">Most plans exclude dental and vision — treated as separate insurance markets.</div>
+      </div>
+    </div>
+
+    <h3 class="section">Two Competing Visions</h3>
+    <p><strong>Healthcare as a right.</strong> Government must guarantee access; mandatory taxes fund universal coverage. Critics call the compulsion unacceptable.</p>
+    <p><strong>Healthcare as a liberty.</strong> Government should secure liberties, not provide goods. Individuals choose their own care. Critics say this leaves the vulnerable behind.</p>
+
+    <div class="apply-box">
+      <div class="apply-label">The Question that Drives Paper III</div>
+      <ol>
+        <li>What is justice, and what is a right?</li>
+        <li>What theory of distributive justice should govern healthcare?</li>
+        <li>When supply is scarce, by what criteria do we choose who gets care?</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">16</div>
+</div>
+
+<!-- ===================== P3 - JUSTICE AND RIGHTS ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper III · Justice</span><span>Lesson 3.2</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 3.2</div>
+    <h2 class="lesson-title">Justice, Rights &amp; Distribution</h2>
+    <p class="lesson-sub">The conceptual toolkit before the theories.</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">Justice (broadly)</div>
+      <div class="principle-text">Individuals getting what is fair or what is their due. Justice = respecting rights.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-label">A Right</div>
+      <div class="principle-text">A legitimate claim one person has against others that imposes an obligation to either provide a good or not interfere with its acquisition.</div>
+    </div>
+
+    <h3 class="section">Negative vs. Positive Rights</h3>
+    <table class="compare">
+      <tr><th>Negative Rights (Liberty)</th><th>Positive Rights (Welfare)</th></tr>
+      <tr><td>Impose a duty <strong>not to interfere</strong>.</td><td>Impose a duty to <strong>provide</strong> a good or service.</td></tr>
+      <tr><td>Example: private property — others must not take it.</td><td>Example: education — others must furnish it.</td></tr>
+      <tr><td>"Hands off."</td><td>"Hand it over."</td></tr>
+    </table>
+    <p>A <strong>right to healthcare</strong> would be a <em>positive</em> right: someone has the obligation to provide it.</p>
+
+    <h3 class="section">Distributive Justice</h3>
+    <p>The branch of justice concerned with how the benefits and burdens of social cooperation are distributed across members of society. The disagreement at the heart of Paper III is not whether <em>some</em> distribution is required — it's <strong>which</strong> distribution counts as fair.</p>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>Whenever you hear "X has a right to Y," translate it: "Who has the obligation, and what kind of obligation is it?"</li>
+        <li>Ask whether the right is positive or negative — that determines the scope of the duty.</li>
+        <li>Then apply the theories on the next page.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">17</div>
+</div>
+
+<!-- ===================== P3 - RAWLS & NOZICK ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper III · Justice</span><span>Lesson 3.3</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 3.3</div>
+    <h2 class="lesson-title">Rawls vs. Nozick</h2>
+    <p class="lesson-sub">Two giant theories of distributive justice.</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">Rawls — Justice as Fairness</div>
+      <div class="principle-text">Inequalities are permitted only when they (a) attach to positions open to all under fair equality of opportunity, and (b) benefit the least-advantaged members of society.</div>
+    </div>
+
+    <h3 class="section">Rawls's Two Principles</h3>
+    <ul class="points">
+      <li><strong>1st Principle.</strong> Each person has an equal claim to a fully adequate scheme of basic rights and liberties.</li>
+      <li><strong>2nd Principle (Difference Principle).</strong> Economic inequalities are just only if they make the worst-off better off than they'd otherwise be.</li>
+    </ul>
+
+    <h3 class="section">The Original Position</h3>
+    <p>Imagine designing society from behind a <strong>veil of ignorance</strong>: you don't know your future race, gender, talents, wealth, or health. Rawls argues every rational designer would build a society that protects the worst-case position — including guaranteeing healthcare.</p>
+
+    <table class="compare">
+      <tr><th>Structure</th><th>Least</th><th>Middle</th><th>Most</th><th>Verdict</th></tr>
+      <tr><td>A</td><td>10k</td><td>10k</td><td>10k</td><td>Equal but poor</td></tr>
+      <tr><td>B</td><td>50k</td><td>100k</td><td>150k</td><td><strong>Best (Rawls)</strong></td></tr>
+      <tr><td>C</td><td>20k</td><td>200k</td><td>500k</td><td>Unjust — bottom worse than B</td></tr>
+    </table>
+
+    <div class="principle">
+      <div class="principle-label">Nozick — Justice as Entitlement</div>
+      <div class="principle-text">A distribution is just if it arose from a just process — not because it matches some preferred pattern.</div>
+    </div>
+
+    <h3 class="section">Nozick's Three Just Acquisitions</h3>
+    <ul class="points">
+      <li><strong>Just Transfer</strong> — voluntary exchange between consenting parties.</li>
+      <li><strong>Just Initial Acquisition</strong> — claiming unowned things, subject to the Lockean proviso ("enough and as good left for others").</li>
+      <li><strong>Just Rectification</strong> — compensation for past rights violations.</li>
+    </ul>
+
+    <p>Nozick's two libertarian rights: <strong>full self-ownership</strong> and the <strong>power to transfer property</strong>. From this, taxation for redistribution = forced labor. Taxes are only legitimate to fund the protection of rights themselves (police, courts, defense).</p>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li><strong>For Rawls:</strong> Run the original-position test. Would a designer behind the veil accept this distribution? If the worst-off can be improved without worsening the best, you must improve them.</li>
+        <li><strong>For Nozick:</strong> Trace the history of holdings. Was each step a voluntary transfer or just acquisition? If so, <em>any</em> resulting distribution is just.</li>
+        <li>Healthcare: Rawls supports a right to it; Nozick rejects compulsory healthcare funding outright.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">18</div>
+</div>
+
+<!-- ===================== P3 - MICRO ALLOCATION + LIVER ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper III · Justice</span><span>Lesson 3.4</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 3.4</div>
+    <h2 class="lesson-title">Micro Allocation &amp; Liver Transplants</h2>
+    <p class="lesson-sub">When supply runs out, who gets care?</p>
+  </div>
+  <div class="body">
+
+    <h3 class="section">Rescher's Five Allocation Criteria (1969)</h3>
+    <ul class="points">
+      <li><strong>Likelihood of success</strong> — how well will the treatment work?</li>
+      <li><strong>Life-expectancy</strong> after successful treatment.</li>
+      <li><strong>Family role</strong> — how many depend on the patient?</li>
+      <li><strong>Future contributions</strong> — what will they give society?</li>
+      <li><strong>Past services rendered</strong> — what have they already given?</li>
+    </ul>
+    <p><strong>Caution:</strong> "Medical" criteria 1–2 unjustly favor the young and able-bodied. "Social" criteria 3–5 discriminate against solitary people and are nearly impossible to measure objectively.</p>
+
+    <h3 class="section">Moss &amp; Siegler — Liver Transplants for Alcoholics</h3>
+    <p>They argue that patients with <strong>alcohol-related end-stage liver disease</strong> (ARESLD) should not compete equally with patients whose ESLD has other causes. Three arguments:</p>
+
+    <table class="compare">
+      <tr><th>Argument</th><th>Claim</th></tr>
+      <tr><td>Fairness</td><td>Non-alcoholics never had a healthy liver; transplant is their first chance. ARESLD patients are getting a "second" liver.</td></tr>
+      <tr><td>Personal Effort</td><td>Alcoholism is a disease, but treatment is available. Patients had 10–20 years to seek help and are responsible for not doing so.</td></tr>
+      <tr><td>Public Support</td><td>The public funds organ programs and supports them less for alcoholics. Equal treatment may collapse public backing for transplantation altogether.</td></tr>
+    </table>
+
+    <h3 class="section">Two Strong Objections</h3>
+    <div class="objection">
+      <strong>The disease cuts both ways.</strong> The same biological/social factors that cause addiction also impair the ability to seek treatment. Holding patients responsible doubles the unfairness.
+    </div>
+    <div class="objection">
+      <strong>Selective punishment.</strong> We don't withhold care from extreme-sport athletes, traffic-accident victims, or people with obesity-related disease. Why single out alcoholism?
+    </div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>Reject any criterion based on race, sex, religion, or eye color — these are paradigm cases of unjust discrimination.</li>
+        <li>For each "neutral" criterion, ask: does it covertly discriminate against age, disability, family status, or class?</li>
+        <li>Be consistent: if you blame alcoholics for their disease, you must also blame motorcyclists, smokers, and athletes — or none of them.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">19</div>
+</div>
+
+<!-- ===================== P3 - HARRIS / FAIR INNINGS ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper III · Justice</span><span>Lesson 3.5</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 3.5</div>
+    <h2 class="lesson-title">The Value of Life &amp; Fair Innings</h2>
+    <p class="lesson-sub">John Harris on age and life-saving allocation.</p>
+  </div>
+  <div class="body">
+
+    <h3 class="section">The Anti-Ageist Argument</h3>
+    <p>We're tempted to favor the young because they have "more life to live." But none of us actually knows how long we have left. Each person's "rest of my life" has indefinite, equal value to them.</p>
+
+    <div class="principle">
+      <div class="principle-label">Anti-Ageist Argument</div>
+      <div class="principle-text">
+        1. Both lives do not differ in value due to age.<br>
+        2. If they don't differ in value, denying the older person is unjust.<br>
+        3. ∴ It would be unjust to deny the older person the chance to live.
+      </div>
+    </div>
+
+    <h3 class="section">The Fair Innings Argument</h3>
+    <p>But intuition resists in extreme cases (a 2-year-old vs. an 89-year-old). Harris introduces the idea of a <strong>fair innings</strong> — say, 70 years — the amount of life one can reasonably expect.</p>
+
+    <div class="principle">
+      <div class="principle-label">Fair Innings Argument</div>
+      <div class="principle-text">
+        1. It is not reasonable to expect to live past one's fair innings at the expense of someone who has not yet reached theirs.<br>
+        2. ∴ It is not unjust to save the younger person, provided they have not yet reached their fair innings.
+      </div>
+    </div>
+
+    <h3 class="section">Putting Them Together</h3>
+    <ul class="points">
+      <li>If <strong>both</strong> patients are below the threshold (e.g., 20 vs. 50), age is irrelevant — fall back on anti-ageism.</li>
+      <li>If <strong>one</strong> is past the threshold (e.g., 89 vs. 2), priority to the younger is just.</li>
+      <li>The 20- vs. 50-year-old case: both would suffer the same injustice if denied. Harris's analogy: a 7-minute task; whether you get 3 or 4 minutes, both are unjust losses.</li>
+    </ul>
+
+    <div class="pull-quote">"It is always a misfortune to die when one wants to go on living, but it is not a tragedy to die in old age." — Harris</div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>If both candidates are well below the fair-innings threshold, do not use age as a tiebreaker.</li>
+        <li>If one has clearly passed the threshold and the other has not, age may justifiably tip the scales.</li>
+        <li>Don't fetishize the exact threshold — the moral idea (premature death is the real tragedy) survives any reasonable choice of number.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">20</div>
+</div>
+
+<!-- ===================== PAPER 4 DIVIDER ===================== -->
+<div class="page divider">
+  <div class="divider-num">IV</div>
+  <div class="divider-rule"></div>
+  <div class="divider-label">Paper Four</div>
+  <h2 class="divider-title">Genetics &amp; Future Persons</h2>
+  <p class="divider-blurb">"What we can now do to genes, we must learn to think about morally."</p>
+</div>
+
+<!-- ===================== P4 - INTRO TO GENETICS ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper IV · Genetics</span><span>Lesson 4.1</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 4.1</div>
+    <h2 class="lesson-title">Genetic Testing &amp; Manipulation</h2>
+    <p class="lesson-sub">Two technologies, several new moral questions.</p>
+  </div>
+  <div class="body">
+
+    <h3 class="section">Two Powerful Technologies</h3>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Genetic Testing</div>
+        <div class="card-body">Identifies the specific genes a person carries — including risk for hereditary disease.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Genetic Manipulation</div>
+        <div class="card-body">Modifies genetic information through silencing, addition, or editing — including germline changes inherited by descendants.</div>
+      </div>
+    </div>
+
+    <h3 class="section">Why Testing Raises Concerns</h3>
+    <ul class="points">
+      <li>Knowing you have an untreatable condition (e.g., <strong>Huntington's</strong>) can cause years of anxiety before symptoms even begin.</li>
+      <li>It creates pressure on reproductive choices: should a carrier have children at all?</li>
+      <li>Many genetic diseases still have no cure — knowledge without remedy.</li>
+    </ul>
+
+    <h3 class="section">Why Manipulation Raises Concerns</h3>
+    <ul class="points">
+      <li>Risks of experimentation in humans.</li>
+      <li>The blurry line between <strong>therapy</strong> (curing) and <strong>enhancement</strong> (upgrading).</li>
+      <li>The shadow of <strong>eugenics</strong> — state-sponsored programs once forcibly sterilized people deemed "unfit" in Nazi Germany, the U.S., Canada, Sweden, and elsewhere.</li>
+    </ul>
+
+    <div class="pull-quote">"Most people accept gene therapy. Most people reject 'designer babies.' The question is whether the line between them can survive scrutiny."</div>
+
+    <h3 class="section">The Four Categories of Modification</h3>
+    <table class="compare">
+      <tr><th></th><th>Therapy</th><th>Enhancement</th></tr>
+      <tr><th>Somatic (only this person)</th><td>SGT</td><td>SGE</td></tr>
+      <tr><th>Germline (descendants too)</th><td>GLGT</td><td>GLGE</td></tr>
+    </table>
+    <p>The widespread view: only <strong>SGT</strong> is permissible. Resnik (Lesson 4.3) will challenge that.</p>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>Distinguish testing from manipulation; they raise different moral questions.</li>
+        <li>For any modification, identify which of the four cells (SGT, SGE, GLGT, GLGE) it occupies.</li>
+        <li>Watch for the slide from voluntary parental choice into coercive eugenics.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">22</div>
+</div>
+
+<!-- ===================== P4 - PURDY ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper IV · Genetics</span><span>Lesson 4.2</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 4.2</div>
+    <h2 class="lesson-title">Purdy on Reproductive Risk</h2>
+    <p class="lesson-sub">Can it be wrong to have children?</p>
+  </div>
+  <div class="body">
+
+    <div class="principle">
+      <div class="principle-label">Purdy's Argument</div>
+      <div class="principle-text">
+        1. If an action puts a person at high risk of harm, there is a moral obligation to prevent it.<br>
+        2. Procreating with high risk of transmitting a serious disease puts the possible child at high risk of harm.<br>
+        3. ∴ There is a moral obligation not to procreate when there is a high risk of transmitting a serious disease.
+      </div>
+    </div>
+
+    <h3 class="section">Why Huntington's Disease?</h3>
+    <ul class="points">
+      <li>Caused by a single defective gene.</li>
+      <li>50% chance of inheritance from an affected parent.</li>
+      <li>If inherited, almost certain to develop the disease.</li>
+      <li>Symptoms (involuntary movement, paranoia, dementia) appear ages 30–50 — usually <em>after</em> the age of childbearing decisions.</li>
+      <li>Lasts ~15 years; ends in death.</li>
+    </ul>
+
+    <h3 class="section">Purdy's Replies to Three Common Pushbacks</h3>
+    <table class="compare">
+      <tr><th>Pushback</th><th>Purdy's Reply</th></tr>
+      <tr><td>"Only 50% chance — that's not enough to forbid."</td><td>50% chance of decades of suffering is not low. The fear and anxiety alone diminish the carrier's life.</td></tr>
+      <tr><td>"Some affected people are glad to be alive."</td><td>They speak before facing the worst symptoms, and may not appreciate what's coming. Their voices can't override prevention.</td></tr>
+      <tr><td>"People have a right to procreate."</td><td>The benefits of parenthood are available through adoption, sperm/egg donation, etc. The biological route isn't the only one.</td></tr>
+    </table>
+
+    <h3 class="section">A Related Obligation: The Duty to Get Tested</h3>
+    <p>If you have a family history and want children, you have a duty to test yourself first. The "right not to know" loses force when another person could be seriously harmed.</p>
+
+    <h3 class="section">Selective Abortion</h3>
+    <p>Purdy thinks abortion is permissible, so prenatal testing followed by abortion is one option. But her argument <em>doesn't depend</em> on accepting abortion: those who reject it can fulfill the duty by preventing conception in the first place.</p>
+
+    <div class="objection">
+      <strong>Discrimination Worry.</strong> Telling carriers not to procreate may communicate that lives like theirs aren't worth living. Reply: the right to life is denied only to <em>potential</em> people, not to real ones already alive.
+    </div>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply</div>
+      <ol>
+        <li>Don't equate "high risk" with "small chance." Severity × probability is what matters.</li>
+        <li>If you can fulfill the same goals (parenting) through alternatives that don't risk harm, those alternatives become morally preferred.</li>
+        <li>Information you'd rather not have can become a duty when another person's welfare is at stake.</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">23</div>
+</div>
+
+<!-- ===================== P4 - RESNIK ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper IV · Genetics</span><span>Lesson 4.3</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Lesson 4.3</div>
+    <h2 class="lesson-title">Resnik on Therapy vs. Enhancement</h2>
+    <p class="lesson-sub">Why the favorite line in genetic ethics may not hold.</p>
+  </div>
+  <div class="body">
+
+    <p>The widespread view: gene <strong>therapy</strong> is permissible, gene <strong>enhancement</strong> is not. Resnik takes this view's five usual reasons and argues that <em>none</em> of them work.</p>
+
+    <h3 class="section">The Five Alleged Differences</h3>
+    <table class="compare">
+      <tr><th>Claim</th><th>Resnik's Verdict</th></tr>
+      <tr><td>Therapy promotes health; enhancement doesn't.</td><td>Plastic surgery, dental braces, breast reduction don't promote health either — yet they're permissible. Health-promotion isn't required for moral permissibility.</td></tr>
+      <tr><td>Therapy fits the goals of medicine; enhancement doesn't.</td><td>"Health" itself is contested — some definitions count enhancements as therapeutic. The line is not crisp enough to do moral work.</td></tr>
+      <tr><td>Therapy preserves "humanness"; enhancement alters it.</td><td>What counts as essentially human is unclear. Most ethical theories don't condemn changing the human form per se — only when it causes harm or disrespects autonomy.</td></tr>
+      <tr><td>Therapy respects unborn rights; enhancement doesn't.</td><td><strong>False.</strong> Proxy consent works for fetal surgeries; the same logic covers germline modification. An "unmodified germline" is not a meaningful right, and modification can <em>expand</em> a child's open future.</td></tr>
+      <tr><td>Therapy isn't eugenics; enhancement is.</td><td>Distinguish state-sponsored from <strong>parental</strong> eugenics. Choosing a mate is already a form of parental gene-pool selection. Not all eugenics is wrong — only the coercive kind.</td></tr>
+    </table>
+
+    <h3 class="section">The Natural Law Objection — and Resnik's Reply</h3>
+    <ul class="points">
+      <li><strong>Naturalistic:</strong> natural selection perfected us, so don't tamper. <em>Reply:</em> evolution produces useless traits (appendix) and leaves room for improvement (immune system).</li>
+      <li><strong>Theistic:</strong> we shouldn't "play God." <em>Reply:</em> it isn't obvious God forbids changes that promote welfare and justice.</li>
+    </ul>
+
+    <div class="apply-box">
+      <div class="apply-label">How to Apply Resnik</div>
+      <ol>
+        <li>Don't reach for "therapy good, enhancement bad" as a quick rule. Test the specific case against real harms and consents.</li>
+        <li>Evaluate enhancements case-by-case: who benefits, who consents, what are the risks?</li>
+        <li>Distinguish parental eugenics (often permissible) from state eugenics (paradigm wrong because of coercion, not because of the genetic aim).</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="page-num">24</div>
+</div>
+
+<!-- ===================== P4 - SYNTHESIS ===================== -->
+<div class="page">
+  <div class="running-head"><span>Paper IV · Genetics</span><span>Synthesis</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Synthesis</div>
+    <h2 class="lesson-title">Genetics, Rights &amp; the Future</h2>
+    <p class="lesson-sub">Pulling Paper IV together for application.</p>
+  </div>
+  <div class="body">
+
+    <h3 class="section">Two Authors, Two Directions</h3>
+    <table class="compare">
+      <tr><th>Purdy</th><th>Resnik</th></tr>
+      <tr><td>Strict — would <strong>restrict</strong> reproduction when serious disease is likely.</td><td>Permissive — would <strong>allow</strong> more genetic intervention than the standard view.</td></tr>
+      <tr><td>Grounds the duty in harm to the future child.</td><td>Grounds permissibility in the failure of the standard reasons against intervention.</td></tr>
+      <tr><td>Uses Mill's harm principle implicitly: liberty ends where serious harm begins.</td><td>Uses skepticism about contested concepts (health, humanness, eugenics) to widen permissible action.</td></tr>
+    </table>
+
+    <h3 class="section">Cross-Course Connections</h3>
+    <ul class="points">
+      <li><strong>Paper I:</strong> Each genetic case can be analyzed through utilitarian (consequences), Kantian (autonomy and dignity), virtue (character of the practitioner), and natural law (the appeal to nature) lenses.</li>
+      <li><strong>Paper II:</strong> Informed consent for genetic testing (and for proxy consent in germline cases) draws directly on the Belmont principles.</li>
+      <li><strong>Paper III:</strong> Allocation of expensive genetic therapies is a distributive justice question — Rawlsian inclusion vs. Nozickian market access.</li>
+      <li><strong>Paper IV:</strong> Reframes all of this in terms of <em>future</em> people whose interests we must protect even before they exist.</li>
+    </ul>
+
+    <h3 class="section">Master Application Checklist</h3>
+    <div class="apply-box">
+      <div class="apply-label">A Universal Method for Bioethics Cases</div>
+      <ol>
+        <li><strong>Identify</strong> the action, the parties, and the stakes. Who is affected, including future people?</li>
+        <li><strong>Run the principles.</strong> Respect for persons / beneficence / justice. Did any fail?</li>
+        <li><strong>Run the theories.</strong> What does utility say? Kant? Virtue? Natural Law? Where do they disagree?</li>
+        <li><strong>Test autonomy.</strong> Competence, information, freedom from coercion — all three?</li>
+        <li><strong>Test justice.</strong> Behind the veil, would you accept this distribution? Did the goods arrive through just transfer?</li>
+        <li><strong>Test the harm principle.</strong> Is interference justified by harm to others, or is it paternalism?</li>
+        <li><strong>Stress-test with counterexamples.</strong> The best moral conclusion survives the surgeon, the sheriff, the inquiring murderer, the BIID patient, and the original position.</li>
+      </ol>
+    </div>
+
+    <div class="pull-quote">"Bioethics is not memorizing answers. It is learning to ask the right questions, in the right order, with intellectual honesty."</div>
+
+  </div>
+  <div class="page-num">25</div>
+</div>
+
+<!-- ===================== QUIZ DIVIDER ===================== -->
+<div class="page divider">
+  <div class="divider-num">?</div>
+  <div class="divider-rule"></div>
+  <div class="divider-label">Final Section</div>
+  <h2 class="divider-title">Self-Test Quiz</h2>
+  <p class="divider-blurb">Twenty questions across all four papers. Answers on the final page — no peeking.</p>
+</div>
+
+<!-- ===================== QUIZ PART 1 ===================== -->
+<div class="page">
+  <div class="running-head"><span>Self-Test Quiz</span><span>Questions 1–10</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Quiz · Part One</div>
+    <h2 class="lesson-title">Test Yourself</h2>
+    <p class="lesson-sub">Multiple choice and short-response. Answers at the end.</p>
+  </div>
+  <div class="body" style="font-size: 9.5pt;">
+
+    <h3 class="section">Paper I — Moral Theories</h3>
+
+    <p><strong>1.</strong> Which feature of moral norms means they apply equally to everyone, regardless of position?</p>
+    <ul class="points">
+      <li>A) Normative dominance</li>
+      <li>B) Universality</li>
+      <li>C) Impartiality</li>
+      <li>D) Beneficence</li>
+    </ul>
+
+    <p><strong>2.</strong> A utilitarian surgeon kills one healthy patient to save five. What does this counterexample show?</p>
+    <ul class="points">
+      <li>A) That utilitarianism is identical to Kantianism</li>
+      <li>B) That utilitarianism can endorse violations of individual rights and justice</li>
+      <li>C) That hedonism is false</li>
+      <li>D) That virtue ethics is correct</li>
+    </ul>
+
+    <p><strong>3.</strong> In Kant's Formula of Humanity, what does "merely as a means" mean?</p>
+    <ul class="points">
+      <li>A) Any time you benefit from another's labor</li>
+      <li>B) Disregarding a person's own ends, autonomy, and rationality</li>
+      <li>C) Lying about anything at all</li>
+      <li>D) Failing to maximize utility</li>
+    </ul>
+
+    <p><strong>4.</strong> According to virtue ethics, why is only Jean (not Joan or Jane) <em>truly</em> honest in the cash-register example?</p>
+
+    <p><strong>5.</strong> State both horns of the Euthyphro Dilemma in your own words and explain why each is a problem for Divine Command Theory.</p>
+
+    <h3 class="section">Paper II — Principles of Practice</h3>
+
+    <p><strong>6.</strong> What are the three principles of the Belmont Report?</p>
+
+    <p><strong>7.</strong> Which historical case directly motivated the creation of the Belmont Report in the United States?</p>
+    <ul class="points">
+      <li>A) The Nuremberg trials</li>
+      <li>B) The Tuskegee Syphilis Study</li>
+      <li>C) The Elizabeth Bouvia case</li>
+      <li>D) The Hippocratic Oath</li>
+    </ul>
+
+    <p><strong>8.</strong> List the three conditions that must be met for a decision to count as autonomous.</p>
+
+    <p><strong>9.</strong> True or False: According to Higgs, withholding complex medical information is acceptable because patients can't fully understand it.</p>
+
+    <p><strong>10.</strong> State Mill's Harm Principle and explain how it constrains paternalism.</p>
+
+  </div>
+  <div class="page-num">26</div>
+</div>
+
+<!-- ===================== QUIZ PART 2 ===================== -->
+<div class="page">
+  <div class="running-head"><span>Self-Test Quiz</span><span>Questions 11–20</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Quiz · Part Two</div>
+    <h2 class="lesson-title">Test Yourself, Continued</h2>
+    <p class="lesson-sub">Justice, allocation, and genetics.</p>
+  </div>
+  <div class="body" style="font-size: 9.5pt;">
+
+    <h3 class="section">Paper III — Justice in Healthcare</h3>
+
+    <p><strong>11.</strong> Healthcare, if it were a right, would be classified as which type of right?</p>
+    <ul class="points">
+      <li>A) A negative (liberty) right</li>
+      <li>B) A positive (welfare) right</li>
+      <li>C) A natural right</li>
+      <li>D) A property right</li>
+    </ul>
+
+    <p><strong>12.</strong> What is Rawls's "veil of ignorance," and what conclusion does he think rational designers would reach behind it about healthcare?</p>
+
+    <p><strong>13.</strong> According to Nozick, when is taxation legitimate?</p>
+    <ul class="points">
+      <li>A) Whenever it benefits the least-advantaged</li>
+      <li>B) Only to fund institutions that protect libertarian rights (police, courts, military)</li>
+      <li>C) Whenever the majority votes for it</li>
+      <li>D) Never, under any circumstances</li>
+    </ul>
+
+    <p><strong>14.</strong> Give one strong objection to Moss &amp; Siegler's argument that alcoholics should receive lower priority for liver transplants.</p>
+
+    <p><strong>15.</strong> In Harris's analysis, when is age a legitimate factor in resource allocation, and when is it not?</p>
+
+    <h3 class="section">Paper IV — Genetics &amp; Future Persons</h3>
+
+    <p><strong>16.</strong> State Purdy's argument in standard form (three steps).</p>
+
+    <p><strong>17.</strong> Why does Purdy reject the objection that "people have a right to procreate"?</p>
+
+    <p><strong>18.</strong> Resnik distinguishes between which two forms of eugenics, and which does he find morally acceptable?</p>
+
+    <p><strong>19.</strong> True or False: Resnik believes the line between gene therapy and gene enhancement is sharp enough to ground all moral judgments about genetic modification.</p>
+
+    <p><strong>20.</strong> <em>Synthesis question.</em> Describe a bioethics case (real or hypothetical) where Mill's harm principle, Rawls's difference principle, and Purdy's reproductive duty would each give different verdicts. Which would you follow, and why?</p>
+
+  </div>
+  <div class="page-num">27</div>
+</div>
+
+<!-- ===================== QUIZ ANSWERS ===================== -->
+<div class="page">
+  <div class="running-head"><span>Self-Test Quiz</span><span>Answer Key</span></div>
+  <div class="header-block">
+    <div class="lesson-tag">Quiz · Answer Key</div>
+    <h2 class="lesson-title">Answers &amp; Explanations</h2>
+    <p class="lesson-sub">Compare your work — focus on the reasoning, not just the verdict.</p>
+  </div>
+  <div class="body" style="font-size: 8pt;">
+
+    <ul class="points" style="font-size: 8pt;">
+      <li><strong>1. C — Impartiality.</strong> Universality is about <em>place</em>; impartiality is about <em>persons</em>.</li>
+      <li><strong>2. B.</strong> The case shows utility can demand the violation of basic rights — the theory's most famous weakness.</li>
+      <li><strong>3. B.</strong> "Merely" matters: using a waiter who consents and is paid is fine. Bypassing autonomy is not.</li>
+      <li><strong>4.</strong> Joan and Jane perform the right action for the wrong reasons (fear, rule-following). Only Jean has the deep dispositions — the feelings, reactions, and identity — that virtue ethics requires for genuine virtue.</li>
+      <li><strong>5.</strong> Horn 1: God commands actions <em>because</em> they are right → morality is grounded in something other than God's commands; DCT collapses. Horn 2: Actions are right <em>because</em> God commands them → morality is arbitrary; God could declare murder right by decree. Either way, DCT loses.</li>
+      <li><strong>6.</strong> Respect for Persons, Beneficence, Justice.</li>
+      <li><strong>7. B.</strong> Tuskegee — though Nuremberg was the international predecessor.</li>
+      <li><strong>8.</strong> (a) Rational competence; (b) Adequate, accurate information understood by the person; (c) Freedom from coercion or manipulation.</li>
+      <li><strong>9. False.</strong> Higgs explicitly rejects this. Complexity does not license deceit; patients can still make informed choices, and doctors must try harder to communicate.</li>
+      <li><strong>10.</strong> "The only acceptable reason for interfering with individual liberty is to prevent harm to others." It rules out paternalism for competent adults — their good, happiness, or even what others think is wise are insufficient reasons to compel them.</li>
+      <li><strong>11. B.</strong> Positive/welfare rights impose a duty to <em>provide</em> a good or service.</li>
+      <li><strong>12.</strong> A thought experiment in which designers don't know their future status (race, talent, health, wealth). Rawls argues they would protect the worst-off position — guaranteeing healthcare access — because any one of them might end up there.</li>
+      <li><strong>13. B.</strong> Only for the protection of libertarian rights themselves. Anything else, for Nozick, is "forced labor."</li>
+      <li><strong>14.</strong> Either: (a) the same disease that causes addiction also impairs the ability to seek treatment, so blame is unfair; or (b) we don't penalize extreme-sport injuries, traffic accidents, or obesity-related disease — singling out alcoholism is inconsistent.</li>
+      <li><strong>15.</strong> Age is legitimate when one patient has clearly passed the "fair innings" threshold and the other has not (e.g., 89 vs. 2). It is <em>not</em> legitimate when both candidates are below the threshold (e.g., 20 vs. 50) — in such cases the anti-ageist argument controls.</li>
+      <li><strong>16.</strong> (1) If an action puts a person at high risk of harm, there is a moral obligation to prevent it. (2) Procreating with high risk of transmitting a serious disease puts the possible child at high risk of harm. (3) ∴ There is a moral obligation not to procreate when there is a high risk of transmitting a serious disease.</li>
+      <li><strong>17.</strong> Because the goods of parenthood (love, raising a child) are accessible through alternatives that don't carry the risk: adoption, sperm donation, egg donation. The biological route isn't morally privileged.</li>
+      <li><strong>18.</strong> <strong>State-sponsored eugenics</strong> (coercive, immoral) and <strong>parental eugenics</strong> (choosing mates or donors). Resnik finds parental eugenics morally acceptable; the wrong of state eugenics lies in coercion, not in the genetic aim.</li>
+      <li><strong>19. False.</strong> Resnik argues exactly the opposite — the line is too blurry to bear the moral weight typically placed on it.</li>
+      <li><strong>20.</strong> <em>Open response — strong answers</em> identify a case (e.g., a carrier of a serious genetic disease deciding whether to procreate with limited resources): Mill protects the carrier's liberty; Rawls might mandate state-funded testing and counseling to protect the worst-off (the future child); Purdy condemns the procreation outright. A good answer chooses one and defends it with reasons traceable to that theory's foundations, then anticipates the strongest objection.</li>
+    </ul>
+
+    <div class="pull-quote" style="font-size: 11pt; margin-top: 8px;">"The point of a quiz is not the score. It is the gap between what you knew and what you thought you knew."</div>
+
+  </div>
+  <div class="page-num">28</div>
+</div>
+
+<!-- ===================== AI INTERACTIVE QUIZ ===================== -->
+<div class="ai-quiz">
+  <div class="ai-badge">AI-Powered Practice</div>
+  <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36pt; font-weight: 600; margin: 0 0 6px; line-height: 1.05;">Test Yourself with Claude</h2>
+  <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15pt; color: var(--sub); margin: 0;">Type your answer to any question below and get personalized feedback from an AI tutor.</p>
+
+  <div class="ai-intro">
+    Each question targets a key concept from the four papers. Write your answer in your own words, then click <strong>Grade with AI</strong>. Claude will read your response, compare it against the rubric, and tell you what you got right and where to deepen your understanding. The first time you click, Puter will ask you to sign in (free) — that's how the AI stays free for you.
+  </div>
+
+  <div class="ai-q" data-q="1"
+       data-question="Explain the principle of utility and why the 'utilitarian surgeon' counterexample is so damaging to the theory."
+       data-rubric="The principle of utility: an action is morally required if it maximizes good and minimizes bad for ALL affected. The surgeon counterexample shows utilitarianism would require killing one healthy patient to harvest organs for five dying patients — net positive utility but morally monstrous. Reveals the theory's weakness: ignores individual rights and basic justice.">
+    <div class="ai-q-num">Question 1 · Paper I</div>
+    <div class="ai-q-text">Explain the principle of utility and why the "utilitarian surgeon" counterexample is so damaging to the theory.</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="2"
+       data-question="What does Kant mean by treating someone 'merely as a means,' and how is that different from simply using someone for a goal?"
+       data-rubric="Treating someone merely as a means = disregarding their autonomy, ends, and rationality; manipulating or objectifying them. Using someone for a goal is permissible IF they consent, are respected, and you fulfill your obligations to them (e.g., paying a waiter who serves you voluntarily). The word 'merely' is crucial — it's about whether you bypass their will.">
+    <div class="ai-q-num">Question 2 · Paper I</div>
+    <div class="ai-q-text">What does Kant mean by treating someone "merely as a means," and how is that different from simply using someone for a goal?</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="3"
+       data-question="What are the three principles of the Belmont Report, and which historical case in the United States triggered their creation?"
+       data-rubric="The three principles: (1) Respect for Persons — acknowledging autonomy and protecting those with diminished autonomy; (2) Beneficence — do no harm and maximize benefits/minimize harms; (3) Justice — distributing benefits and burdens equitably. The Tuskegee Syphilis Study (1932-1972) directly triggered the 1976 Belmont Report.">
+    <div class="ai-q-num">Question 3 · Paper II</div>
+    <div class="ai-q-text">What are the three principles of the Belmont Report, and which historical case in the United States triggered their creation?</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="4"
+       data-question="Describe the three conditions an autonomous decision must meet, and explain why even a competent adult's decision can fail to be autonomous."
+       data-rubric="Three conditions: (1) rational competence — capable of evaluating one's own situation and well-being; (2) adequate, accurate information that the person actually understands; (3) freedom from coercion, manipulation, or undue influence. A competent adult's decision can fail to be autonomous if they were lied to, didn't understand the consequences, or were under extreme pressure.">
+    <div class="ai-q-num">Question 4 · Paper II</div>
+    <div class="ai-q-text">Describe the three conditions an autonomous decision must meet, and explain why even a competent adult's decision can fail to be autonomous.</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="5"
+       data-question="State Mill's harm principle and explain how it constrains paternalism in medicine."
+       data-rubric="The harm principle: the only acceptable reason for interfering with individual liberty is to prevent harm to others. Self-protection is the sole warrant. A person's own good (physical or moral), happiness, or what others think is wise are NOT sufficient grounds for compulsion. This rules out paternalism for competent adults — doctors may persuade or reason, but cannot force treatment on a competent adult who refuses.">
+    <div class="ai-q-num">Question 5 · Paper II</div>
+    <div class="ai-q-text">State Mill's harm principle and explain how it constrains paternalism in medicine.</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="6"
+       data-question="Explain Rawls's 'original position' and 'veil of ignorance,' and what conclusion Rawls thinks rational designers would reach about healthcare."
+       data-rubric="The original position: a hypothetical scenario where people design society's rules without knowing what their own future position will be (race, gender, talents, wealth, health). The veil of ignorance prevents bias toward one's own situation. Rawls argues rational designers behind the veil would protect the worst-off position — guaranteeing basic goods including healthcare — because any one of them could end up there. This grounds his Difference Principle.">
+    <div class="ai-q-num">Question 6 · Paper III</div>
+    <div class="ai-q-text">Explain Rawls's "original position" and "veil of ignorance," and what conclusion Rawls thinks rational designers would reach about healthcare.</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="7"
+       data-question="Compare Rawls and Nozick on whether there should be a right to healthcare. What is the fundamental disagreement about justice between them?"
+       data-rubric="Rawls (justice as fairness): supports a right to healthcare. Inequalities are only just when they benefit the worst-off, and rational designers behind the veil would ensure basic care for everyone. Nozick (justice as entitlement): rejects a right to healthcare. Justice is about historical process, not patterned distribution. If holdings arose through just transfer, just acquisition, or just rectification, they're just — no matter the result. Compulsory taxation for redistribution is 'forced labor' for Nozick. The fundamental disagreement: patterned vs. historical theories of justice.">
+    <div class="ai-q-num">Question 7 · Paper III</div>
+    <div class="ai-q-text">Compare Rawls and Nozick on whether there should be a right to healthcare. What is the fundamental disagreement about justice between them?</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="8"
+       data-question="Explain Harris's 'fair innings' argument. When is age a legitimate factor in resource allocation, and when is it not?"
+       data-rubric="Fair innings: the amount of life one can reasonably expect to live (e.g., 70 years). Dying before completing your fair innings is a tragedy; dying past it is a misfortune but not unjust. So it is NOT unjust to save a younger person over an older one, provided the younger has not yet reached their fair innings. Age IS legitimate when one patient has clearly passed the threshold and the other has not (89 vs. 2). Age is NOT legitimate when both candidates are below the threshold (20 vs. 50) — there the anti-ageist argument controls, since both 'rests of life' are equally valuable.">
+    <div class="ai-q-num">Question 8 · Paper III</div>
+    <div class="ai-q-text">Explain Harris's "fair innings" argument. When is age a legitimate factor in resource allocation, and when is it not?</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="9"
+       data-question="State Purdy's argument about reproductive risk in standard form, and give one of her replies to the objection that 'people have a right to procreate.'"
+       data-rubric="Purdy's argument: (1) If an action puts a person at high risk of harm, there is a moral obligation to prevent it. (2) Procreating with high risk of transmitting a serious disease puts the possible child at high risk of harm. (3) Therefore, there is a moral obligation not to procreate when there is a high risk of transmitting a serious disease. Reply to the right-to-procreate objection: the goods of parenthood are accessible through alternatives that don't carry the risk — adoption, sperm donation, egg donation. The biological route isn't morally privileged.">
+    <div class="ai-q-num">Question 9 · Paper IV</div>
+    <div class="ai-q-text">State Purdy's argument about reproductive risk in standard form, and give one of her replies to the objection that "people have a right to procreate."</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-q" data-q="10"
+       data-question="Why does Resnik think the line between gene therapy and gene enhancement is too blurry to ground moral judgments? Give at least two of his reasons."
+       data-rubric="Resnik attacks the standard view that 'therapy good, enhancement bad' by showing the alleged differences don't hold. (1) Health-promotion isn't required for permissibility — plastic surgery, dental braces, breast reduction don't promote health but are permissible. (2) The 'goals of medicine' criterion fails because 'health' itself is contested — different definitions classify the same intervention differently. (3) 'Humanness' is unclear and most ethical theories don't condemn changing the human form per se. (4) Germline modification doesn't violate unborn rights — proxy consent works, just like fetal surgery. (5) Eugenics distinction: parental eugenics (mate selection) is routine and morally OK; only coercive state eugenics is wrong.">
+    <div class="ai-q-num">Question 10 · Paper IV</div>
+    <div class="ai-q-text">Why does Resnik think the line between gene therapy and gene enhancement is too blurry to ground moral judgments? Give at least two of his reasons.</div>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="ai-grade-btn" onclick="gradeAnswer(this)">Grade with AI</button>
+    <div class="ai-feedback"></div>
+  </div>
+
+  <div class="ai-disclaimer">
+    Powered by Puter.js + Claude · Free for everyone · No data is stored on this page
+  </div>
+</div>
+
+<script>
+async function gradeAnswer(btn) {
+  const card = btn.closest('.ai-q');
+  const textarea = card.querySelector('textarea');
+  const feedback = card.querySelector('.ai-feedback');
+  const question = card.dataset.question;
+  const rubric = card.dataset.rubric;
+  const answer = textarea.value.trim();
+
+  if (!answer) {
+    feedback.innerHTML = '<strong>Please write an answer first.</strong>';
+    feedback.classList.add('visible');
+    return;
+  }
+
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Grading…';
+  feedback.classList.remove('visible');
+
+  const prompt = `You are a warm but rigorous bioethics tutor grading a student's short-answer response for a college bioethics course.
+
+QUESTION: ${question}
+
+KEY CONCEPTS THE ANSWER SHOULD COVER (rubric): ${rubric}
+
+STUDENT'S ANSWER: ${answer}
+
+Grade the student's answer on a 1-5 scale and give specific, encouraging feedback. Be honest about gaps but constructive. Keep your response under 160 words. Format exactly like this:
+
+Score: X/5
+
+Strengths: [what the student got right, specifically]
+
+To improve: [what's missing, vague, or incorrect — point to the specific concept from the rubric]
+
+One-sentence takeaway: [a single sentence the student should remember]`;
+
+  try {
+    if (typeof puter === 'undefined') {
+      throw new Error('Puter.js failed to load. Check your internet connection.');
+    }
+    const response = await puter.ai.chat(prompt, { model: 'claude-sonnet-4' });
+    const text = (typeof response === 'string') ? response : (response.message?.content?.[0]?.text || response.text || JSON.stringify(response));
+
+    // Format the response with bold headers
+    const formatted = text
+      .replace(/Score:\s*(\d+\/5)/i, '<strong>Score:</strong> $1')
+      .replace(/Strengths:/g, '<strong>Strengths:</strong>')
+      .replace(/To improve:/gi, '<strong>To improve:</strong>')
+      .replace(/One-sentence takeaway:/gi, '<strong>One-sentence takeaway:</strong>');
+
+    feedback.innerHTML = formatted;
+    feedback.classList.add('visible');
+  } catch (err) {
+    feedback.innerHTML = '<strong>Sorry — couldn\'t reach the AI tutor.</strong> ' + (err.message || 'Try again in a moment.') + ' If this is your first time, you may need to allow the Puter sign-in popup.';
+    feedback.classList.add('visible');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+</script>
+
+</body>
+</html>
