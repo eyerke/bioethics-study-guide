@@ -820,6 +820,223 @@
     justify-content: space-between;
   }
 
+  /* ============= MATRIX (theory cheat sheet) ============= */
+  .matrix {
+    margin: 0.1in 0 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+  .matrix-row {
+    display: grid;
+    grid-template-columns: 1.05in repeat(5, 1fr);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .matrix-row:last-child { border-bottom: none; }
+  .matrix-row.head {
+    border-bottom: 1px solid var(--ink);
+    background: transparent;
+  }
+  .matrix-row > div {
+    padding: 11px 9px;
+    font-size: 8pt;
+    line-height: 1.4;
+    color: var(--sub);
+    border-right: 1px solid var(--rule-soft);
+  }
+  .matrix-row > div:last-child { border-right: none; }
+  .matrix-row > div:first-child {
+    font-family: var(--display);
+    font-size: 7pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .matrix-row.head > div {
+    font-family: var(--display);
+    font-size: 8.5pt;
+    color: var(--ink);
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    text-transform: none;
+    padding: 13px 9px;
+  }
+  .matrix-row.head > div:first-child { background: transparent; }
+  .matrix strong { color: var(--ink); font-weight: 700; }
+
+  /* ============= TIMELINE ============= */
+  .timeline {
+    margin: 0.1in 0 0;
+    border-left: 2px solid var(--ink);
+    padding-left: 0.4in;
+  }
+  .tl-event {
+    position: relative;
+    padding: 14px 0 14px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .tl-event:last-child { border-bottom: none; }
+  .tl-event::before {
+    content: "";
+    position: absolute;
+    left: -0.42in;
+    top: 22px;
+    width: 0.18in;
+    height: 1px;
+    background: var(--ink);
+  }
+  .tl-event::after {
+    content: "";
+    position: absolute;
+    left: -0.46in;
+    top: 19px;
+    width: 7px;
+    height: 7px;
+    background: var(--ink);
+    border-radius: 50%;
+  }
+  .tl-year {
+    font-family: var(--display);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 4px;
+  }
+  .tl-title {
+    font-family: var(--display);
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+    letter-spacing: -0.005em;
+  }
+  .tl-body {
+    font-size: 9pt;
+    line-height: 1.5;
+    color: var(--sub);
+    max-width: 4.6in;
+  }
+
+  /* ============= GLOSSARY ============= */
+  .glossary {
+    margin: 0.1in 0 0;
+    columns: 2;
+    column-gap: 0.4in;
+    column-rule: 1px solid var(--rule-soft);
+  }
+  .gloss-item {
+    break-inside: avoid;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    margin-bottom: 0;
+  }
+  .gloss-term {
+    font-family: var(--display);
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    margin-bottom: 3px;
+  }
+  .gloss-def {
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: var(--sub);
+  }
+
+  /* ============= 2x2 MATRIX (gene mod) ============= */
+  .quad {
+    margin: 0.1in 0;
+    border: 2px solid var(--ink);
+  }
+  .quad-head {
+    display: grid;
+    grid-template-columns: 1in 1fr 1fr;
+    border-bottom: 1px solid var(--ink);
+    background: transparent;
+  }
+  .quad-head > div {
+    padding: 12px 14px;
+    font-family: var(--display);
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    text-align: center;
+    border-right: 1px solid var(--ink);
+  }
+  .quad-head > div:first-child { border-right: 1px solid var(--ink); background: transparent; }
+  .quad-head > div:last-child { border-right: none; }
+  .quad-row {
+    display: grid;
+    grid-template-columns: 1in 1fr 1fr;
+    border-bottom: 1px solid var(--ink);
+  }
+  .quad-row:last-child { border-bottom: none; }
+  .quad-row > div {
+    padding: 16px 14px;
+    border-right: 1px solid var(--ink);
+    font-size: 9pt;
+    line-height: 1.5;
+    color: var(--sub);
+  }
+  .quad-row > div:first-child {
+    font-family: var(--display);
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .quad-row > div:last-child { border-right: none; }
+  .quad-cell-tag {
+    display: block;
+    font-family: var(--display);
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .quad-cell-ok {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: 6.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .quad-cell-no {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 8px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 6.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Wide page variant (full-width content for visuals) */
+  .page.wide .stage {
+    grid-template-columns: 1fr;
+  }
+  .page.wide .col-main { max-width: 6.5in; }
+
   @page { size: 8.5in 11in; margin: 0; }
   @media print {
     body { background: white; }
@@ -1093,6 +1310,11 @@
         <div class="case-body">An agent who enjoys both giving and receiving pain can universalize a maxim of mutual harm. Formula I, on its own, can't catch every wrong.</div>
       </div>
 
+      <div class="case">
+        <div class="case-label">Counterexample · The Lifeboat</div>
+        <div class="case-body">Eleven survivors on a lifeboat built for ten. One is unconscious and dying from a head wound; help is hours away. Throwing him overboard would save the others — but Kant forbids it, since it would treat him merely as a means. Formula II produces a tragic result.</div>
+      </div>
+
       <div class="apply">
         <div class="apply-label">How to apply Kant</div>
         <ol>
@@ -1180,8 +1402,10 @@
         <div class="def-text">An act is morally required just because God commands it, and immoral just because God forbids it.</div>
       </div>
 
-      <h3>The Euthyphro dilemma</h3>
-      <p>Plato's challenge: <em>Does God command an action because it is right, or is it right because God commands it?</em> Either answer breaks the theory.</p>
+      <h3>Two problems with DCT</h3>
+      <p>The first problem is empirical: <strong>God may not exist</strong> — or may not exist in the form we imagine. With no concrete evidence either way, anyone who is not already religious will look elsewhere for a moral foundation.</p>
+
+      <p>The second problem is logical and far more serious. Plato's challenge: <em>Does God command an action because it is right, or is it right because God commands it?</em> Either answer breaks the theory.</p>
 
       <div class="compare">
         <div>
@@ -1221,6 +1445,87 @@
   <div class="page-foot"><span class="left">Bioethics — A Study Guide</span><span class="right">08 / 32</span></div>
 </section>
 
+<!-- ============= THEORY CHEAT SHEET ============= -->
+<section class="page wide">
+  <div class="page-head"><span class="left">Part I — Moral Theories</span><span class="right">Cheat Sheet</span></div>
+  <div class="stage">
+    <div class="col-main">
+      <div class="lesson-tag">★<span class="of">cheat sheet</span></div>
+      <h2 class="lesson-title">Five Theories,<br>One Page.</h2>
+      <p class="lesson-sub">The whole landscape of moral theory at a glance — what each one says, why it's strong, and what kills it.</p>
+
+      <div class="matrix">
+        <div class="matrix-row head">
+          <div></div>
+          <div>Utilitarianism</div>
+          <div>Kant</div>
+          <div>Virtue Ethics</div>
+          <div>Divine Command</div>
+          <div>Natural Law</div>
+        </div>
+        <div class="matrix-row">
+          <div>Core Question</div>
+          <div>What produces the best outcome for everyone?</div>
+          <div>Could I will my maxim to be a universal law?</div>
+          <div>What would a virtuous person do here?</div>
+          <div>What does God command?</div>
+          <div>What fulfills our natural purpose?</div>
+        </div>
+        <div class="matrix-row">
+          <div>What Makes It Right</div>
+          <div>It maximizes net good across all affected.</div>
+          <div>The maxim is universalizable and respects persons as ends.</div>
+          <div>It is what a person of true virtue, in character, would do.</div>
+          <div>God commands it.</div>
+          <div>It is consistent with the natural law.</div>
+        </div>
+        <div class="matrix-row">
+          <div>Key Figures</div>
+          <div>Bentham, J.S. Mill</div>
+          <div>Immanuel Kant</div>
+          <div>Aristotle, Plato</div>
+          <div>Religious tradition</div>
+          <div>Aquinas (1225–1274)</div>
+        </div>
+        <div class="matrix-row">
+          <div>Strength</div>
+          <div>Simple, impartial, treats all equally.</div>
+          <div>Grounds morality in reason; respects dignity.</div>
+          <div>Flexible; avoids rigid rules; tracks character.</div>
+          <div>Clear authority; binding for believers.</div>
+          <div>Avoids the Euthyphro dilemma.</div>
+        </div>
+        <div class="matrix-row">
+          <div>Fatal Counter</div>
+          <div>The <strong>Surgeon</strong> &amp; the <strong>Sheriff</strong> — utility can demand injustice.</div>
+          <div>The <strong>Inquiring Murderer</strong> — duty forbids saving a life.</div>
+          <div>Vague: who counts as the moral exemplar?</div>
+          <div>The <strong>Euthyphro Dilemma</strong> — both horns kill it.</div>
+          <div>Hume's gap: what is natural is not always good.</div>
+        </div>
+        <div class="matrix-row">
+          <div>Use When</div>
+          <div>Outcomes are clearly measurable.</div>
+          <div>Individual rights are at stake.</div>
+          <div>The case is messy; principles conflict.</div>
+          <div>You are arguing within a religious tradition.</div>
+          <div>You want a non-arbitrary moral order.</div>
+        </div>
+      </div>
+
+      <div class="apply">
+        <div class="apply-label">How to use this matrix on the exam</div>
+        <ol>
+          <li>Read across any row to compare the five theories on a single dimension.</li>
+          <li>For any case, run all five "Core Question" rows mentally — pick the theory that gives the most defensible answer.</li>
+          <li>For any objection, find the "Fatal Counter" row — that's the strongest opposing case.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span class="left">Bioethics — A Study Guide</span><span class="right">09 / 34</span></div>
+</section>
+
 <!-- ============= PART II DIVIDER ============= -->
 <section class="page divider">
   <div class="meta-top"><span>Part Two</span><span>Principles of Practice</span></div>
@@ -1255,12 +1560,12 @@
 
       <div class="case">
         <div class="case-label">Nazi Medical Experiments (WWII)</div>
-        <div class="case-body">Prisoners and children subjected to lethal experiments without consent. The aftermath produced the <strong>Nuremberg Code</strong> (1947): voluntary consent, no high-risk-of-death experiments, social value required.</div>
+        <div class="case-body">Prisoners and children subjected to lethal experiments without consent. The aftermath produced the <strong>Nuremberg Code</strong> (1947): voluntary consent, no high-risk-of-death experiments, social value required. The <strong>Declaration of Helsinki</strong> (1964, World Medical Association) reaffirmed these principles for clinical research worldwide.</div>
       </div>
 
       <div class="case">
         <div class="case-label">Tuskegee Study (1932 — 1972)</div>
-        <div class="case-body">The U.S. Public Health Service watched 399 African American men suffer untreated syphilis for 40 years — even after penicillin existed. 28 died of syphilis directly; 100 of complications; 40 wives infected; 19 children born with congenital syphilis. The outrage produced Belmont.</div>
+        <div class="case-body">The U.S. Public Health Service watched 399 African American men suffer untreated syphilis for 40 years — even after penicillin existed. 28 died of syphilis directly; 100 of complications; 40 wives infected; 19 children born with congenital syphilis. The outrage produced Belmont. The legacy: many Black Americans remain skeptical of medical research, to the detriment of their own health.</div>
       </div>
 
       <p>Both failed all three principles at once: autonomy denied, harm inflicted, and burdens dumped on the disadvantaged.</p>
@@ -1276,6 +1581,70 @@
     </div>
   </div>
   <div class="page-foot"><span class="left">Bioethics — A Study Guide</span><span class="right">10 / 32</span></div>
+</section>
+
+<!-- ============= TIMELINE ============= -->
+<section class="page">
+  <div class="page-head"><span class="left">Part II — Principles of Practice</span><span class="right">Timeline</span></div>
+  <div class="stage">
+    <div class="col-left">
+      <div class="lesson-tag">★<span class="of">timeline</span></div>
+      <div class="margin-note"><strong>Why memorize this</strong>Every modern principle in bioethics traces back to an event on this list. Knowing the dates is half the exam.</div>
+    </div>
+    <div class="col-main">
+      <h2 class="lesson-title">A Timeline of<br>Bioethics.</h2>
+      <p class="lesson-sub">From the Hippocratic Oath to the Bouvia ruling — the events that built the field.</p>
+
+      <div class="timeline">
+        <div class="tl-event">
+          <div class="tl-year">c. 500 — 300 BC</div>
+          <div class="tl-title">The Hippocratic Oath</div>
+          <div class="tl-body">First sustained ethical code for physicians. Centers beneficence and non-maleficence — but says nothing about respecting the patient's perspective. Inherently paternalistic.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1859</div>
+          <div class="tl-title">John Stuart Mill, On Liberty</div>
+          <div class="tl-body">Articulates the harm principle: society may interfere with a person's liberty only to prevent harm to others. The foundation of all modern thinking about autonomy.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1932 — 1972</div>
+          <div class="tl-title">Tuskegee Syphilis Study</div>
+          <div class="tl-body">U.S. Public Health Service watches 399 African American men suffer untreated syphilis for forty years. The defining American failure of research ethics.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1947</div>
+          <div class="tl-title">The Nuremberg Code</div>
+          <div class="tl-body">Result of the trials of Nazi physicians. First international guidelines on research with humans: voluntary consent, no high-risk-of-death experiments, social value required.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1964</div>
+          <div class="tl-title">Declaration of Helsinki</div>
+          <div class="tl-body">World Medical Association reaffirms and extends Nuremberg for clinical research worldwide.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1971</div>
+          <div class="tl-title">Rawls, A Theory of Justice</div>
+          <div class="tl-body">Introduces the original position, the veil of ignorance, and the difference principle — the foundation for arguing that healthcare is a right.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1974</div>
+          <div class="tl-title">Nozick, Anarchy, State, and Utopia</div>
+          <div class="tl-body">Counters Rawls. Justice is about historical process, not patterns. Compulsory taxation for redistribution is "forced labor." There is no right to healthcare.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1976</div>
+          <div class="tl-title">The Belmont Report</div>
+          <div class="tl-body">Issued in response to the Tuskegee revelations. Codifies the three principles of modern bioethics: Respect for Persons, Beneficence, Justice.</div>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">1986</div>
+          <div class="tl-title">Bouvia v. Superior Court</div>
+          <div class="tl-body">California Court of Appeal: competent adults have a constitutionally guaranteed right to refuse medical treatment, even if refusal will lead to death. Patient intentions are irrelevant.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span class="left">Bioethics — A Study Guide</span><span class="right">12 / 34</span></div>
 </section>
 
 <!-- ============= 2.2 AUTONOMY ============= -->
@@ -1457,7 +1826,7 @@
       <p>Mill rules out paternalism for competent adults: their good, their happiness, even what others judge wise — none are sufficient grounds. Society may persuade, reason, plead. It may not compel.</p>
 
       <h3>The BIID test case</h3>
-      <p><strong>Body Integrity Identity Disorder</strong> is a rare condition in which a person experiences a healthy limb as not their own, and seeks medical amputation. Therapy is largely ineffective. Without help, sufferers often attempt unsafe self-amputation.</p>
+      <p><strong>Body Integrity Identity Disorder</strong> is a rare condition in which a person experiences a healthy limb as not their own, and seeks medical amputation. Some clinicians once labeled the condition <strong>apotemnophilia</strong> (a sexual paraphilia), but sufferers reject the label — their desire is not sexual. The closer parallel is <strong>gender dysphoria</strong>: a felt mismatch between body and identity. Therapy and medication are largely ineffective. Without help, sufferers often attempt unsafe self-amputation.</p>
 
       <p>BIID is the stress test for Mill. If you accept the harm principle without exception, voluntary amputation must be permitted. If you don't, you owe an account of where Mill stops.</p>
 
@@ -1617,6 +1986,8 @@
 
       <p>Rawls's <strong>original position</strong>: imagine designing society from behind a <strong>veil of ignorance</strong>, not knowing your future race, gender, talents, wealth, or health. Rational designers would protect the worst-off position — including by guaranteeing healthcare — because any one of them might end up there. This is the <strong>difference principle</strong>.</p>
 
+      <p>Rawls's example: a <strong>surgeon</strong> and a <strong>waiter</strong> deserve equal rights and opportunities, but not equal income. Becoming a surgeon takes a decade of hard work; the talent benefits everyone, so high pay is fair. But the surgeon's reward cannot be so high that it makes the waiter worse off than under a flatter scheme.</p>
+
       <h3>The income test</h3>
       <div class="compare">
         <div>
@@ -1746,7 +2117,7 @@
       </div>
 
       <h3>How they fit together</h3>
-      <p>If both candidates are below the threshold (e.g., 20 vs. 50), age is irrelevant — fall back on anti-ageism. If one is past the threshold and the other is not (89 vs. 2), priority to the younger is just. The 20-vs-50 case looks tempting but Harris resists: both would suffer the same injustice if denied, since neither has reached the threshold.</p>
+      <p>If both candidates are below the threshold (e.g., 20 vs. 50), age is irrelevant — fall back on anti-ageism. If one is past the threshold and the other is not (89 vs. 2), priority to the younger is just. The 20-vs-50 case looks tempting but Harris resists with an analogy: <em>imagine the fair time to complete a task is seven minutes. One competitor gets only three minutes, another gets four. Both suffer the same injustice — four minutes is not "more reasonable" than three.</em> Both 20 and 50 would suffer the same injustice if denied, since neither has reached their fair innings.</p>
 
       <div class="pq">"It is always a misfortune to die when one wants to go on living, but it is not a tragedy to die in old age." — Harris</div>
 
@@ -1792,18 +2163,41 @@
       <p>Manipulation lets us silence, add, or edit genes — including in germ cells, which means changes pass to all descendants. The promise: cure hereditary disease at the source. The fear: a return to <strong>eugenics</strong>, the practice of "improving" the gene pool that, in the 19th and 20th centuries, took the form of forced sterilization in Nazi Germany, the U.S., Canada, and Sweden.</p>
 
       <h3>The four-cell map of modification</h3>
-      <div class="compare">
-        <div>
-          <div class="compare-label">Therapy</div>
-          <div class="compare-body"><strong>SGT</strong> — Somatic genetic therapy. Affects only the patient.<br><br><strong>GLGT</strong> — Germline genetic therapy. Affects all descendants too.</div>
+      <div class="quad">
+        <div class="quad-head">
+          <div></div>
+          <div>Therapy</div>
+          <div>Enhancement</div>
         </div>
-        <div>
-          <div class="compare-label">Enhancement</div>
-          <div class="compare-body"><strong>SGE</strong> — Somatic genetic enhancement. Goes beyond cure.<br><br><strong>GLGE</strong> — Germline genetic enhancement. Inherited and beyond cure.</div>
+        <div class="quad-row">
+          <div>Somatic<br>(this person only)</div>
+          <div>
+            <span class="quad-cell-tag">SGT</span>
+            Treats existing disease in one patient. Standard view: permissible.
+            <span class="quad-cell-ok">✓ Permitted</span>
+          </div>
+          <div>
+            <span class="quad-cell-tag">SGE</span>
+            Augments capacities beyond normal in one patient. Standard view: not permitted.
+            <span class="quad-cell-no">Contested</span>
+          </div>
+        </div>
+        <div class="quad-row">
+          <div>Germline<br>(descendants too)</div>
+          <div>
+            <span class="quad-cell-tag">GLGT</span>
+            Eliminates inherited disease in all future descendants.
+            <span class="quad-cell-no">Contested</span>
+          </div>
+          <div>
+            <span class="quad-cell-tag">GLGE</span>
+            Designer descendants. The hardest case for the standard view.
+            <span class="quad-cell-no">Contested</span>
+          </div>
         </div>
       </div>
 
-      <p>The widespread view: only <strong>SGT</strong> is permissible. Resnik will challenge that on the next page but one.</p>
+      <p>The widespread view says only <strong>SGT</strong> is permissible. Resnik will challenge that distinction on the next page but one.</p>
 
       <div class="pq">"Most people accept gene therapy. Most people reject 'designer babies.' The question is whether the line between them can survive scrutiny."</div>
 
@@ -1895,7 +2289,7 @@
         <li><strong>Therapy promotes health; enhancement doesn't.</strong> But plastic surgery, dental braces, and male breast reduction don't promote health either — and we permit them.</li>
         <li><strong>Therapy fits the goals of medicine; enhancement doesn't.</strong> "Health" itself is contested; different definitions classify the same intervention differently.</li>
         <li><strong>Therapy preserves humanness; enhancement alters it.</strong> What counts as essentially human is unclear, and most ethical theories don't condemn changing the human form per se.</li>
-        <li><strong>Enhancement violates the rights of the unborn.</strong> Resnik calls this <em>false</em>. Proxy consent already covers fetal surgery; the same logic covers germline modification, which can also expand a child's open future, not restrict it.</li>
+        <li><strong>Enhancement violates the rights of the unborn.</strong> Three rights get raised: the right to <strong>informed consent</strong>, the right to an <strong>unmodified germline</strong>, and the right to an <strong>open future</strong>. Resnik calls all three <em>false</em>. Proxy consent already covers fetal surgery; an "unmodified germline" is not a meaningful interest if the modification produces health; and germline therapy can <em>expand</em> a child's open future rather than restrict it.</li>
         <li><strong>Enhancement is eugenics.</strong> Distinguish state-sponsored eugenics (coercive, immoral) from <strong>parental eugenics</strong> (mate choice, sperm/egg donation). The latter is routine and morally unobjectionable.</li>
       </ul>
 
@@ -1919,6 +2313,198 @@
     </div>
   </div>
   <div class="page-foot"><span class="left">Bioethics — A Study Guide</span><span class="right">24 / 32</span></div>
+</section>
+
+<!-- ============= GLOSSARY ============= -->
+<section class="page wide">
+  <div class="page-head"><span class="left">Quick Reference</span><span class="right">Glossary</span></div>
+  <div class="stage">
+    <div class="col-main">
+      <div class="lesson-tag">★<span class="of">glossary</span></div>
+      <h2 class="lesson-title">Every Term,<br>One Page.</h2>
+      <p class="lesson-sub">The fastest way to refresh the entire course before the exam.</p>
+
+      <div class="glossary">
+        <div class="gloss-item">
+          <div class="gloss-term">Anti-ageist argument</div>
+          <div class="gloss-def">Harris: every person's "rest of life" has equal indefinite value, so denying the older person care is unjust.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Apotemnophilia</div>
+          <div class="gloss-def">Outdated label for BIID — sufferers reject it because the desire is not sexual.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Applied ethics</div>
+          <div class="gloss-def">The branch of ethics that takes moral theories to concrete problems. Bioethics is a sub-field.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Autonomy</div>
+          <div class="gloss-def">The rational capacity to determine one's own life. Requires competence, information, and freedom from coercion.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Beneficence</div>
+          <div class="gloss-def">Belmont principle: do no harm; maximize benefits and minimize harms.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">BIID</div>
+          <div class="gloss-def">Body Integrity Identity Disorder. Felt mismatch between body and identity, leading to a desire for amputation.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Categorical imperative</div>
+          <div class="gloss-def">Kant's absolute rule of morality, stated in two formulas: Universal Law and Humanity.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Conscientious objection</div>
+          <div class="gloss-def">A provider's refusal to perform a procedure on grounds of conscience. Wicclair's three positions: absolutism, incompatibilism, reasonable accommodation.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Consequentialism</div>
+          <div class="gloss-def">The family of theories that judge actions by their consequences. Utilitarianism is the leading form.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Difference principle</div>
+          <div class="gloss-def">Rawls: economic inequalities are just only when they benefit the least-advantaged members of society.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Distributive justice</div>
+          <div class="gloss-def">The branch of justice concerned with how benefits and burdens are distributed across society.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Divine Command Theory</div>
+          <div class="gloss-def">An act is right just because God commands it. Defeated by the Euthyphro Dilemma.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Eugenics</div>
+          <div class="gloss-def">Attempting to improve the genetic quality of a population. Resnik distinguishes coercive state-sponsored eugenics (wrong) from voluntary parental eugenics (routine).</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Euthyphro Dilemma</div>
+          <div class="gloss-def">Plato's challenge to DCT: does God command an action because it is right, or is it right because God commands it? Both horns kill the theory.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Fair innings</div>
+          <div class="gloss-def">Harris: the amount of life one can reasonably expect (≈70 years). Dying before reaching it is a tragedy; dying past it is not unjust.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Formula of Humanity</div>
+          <div class="gloss-def">Kant's Formula II: always treat persons as ends in themselves, never merely as a means.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Formula of Universal Law</div>
+          <div class="gloss-def">Kant's Formula I: act only on maxims you can will to become a universal law.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Good will</div>
+          <div class="gloss-def">Kant: the determination to act from moral reasons alone. The only thing of unconditional worth.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Harm Principle</div>
+          <div class="gloss-def">Mill: the only acceptable reason for interfering with individual liberty is to prevent harm to others.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Hedonism</div>
+          <div class="gloss-def">Theory of value adopted by classical utilitarians: the good is pleasure, the bad is pain.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Hippocratic Oath</div>
+          <div class="gloss-def">Ancient ethical code (c. 500–300 BC) for physicians. Centers beneficence and non-maleficence; inherently paternalistic.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Hume's Is–Ought gap</div>
+          <div class="gloss-def">Just because something is the case does not mean it ought to be. The standard objection to Natural Law.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Informed consent</div>
+          <div class="gloss-def">Autonomous authorization of a medical intervention. Requires competence, understanding, and voluntariness.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Justice (Belmont)</div>
+          <div class="gloss-def">Belmont principle: distribute the benefits and burdens of research equitably.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Lockean Proviso</div>
+          <div class="gloss-def">Nozick (via Locke): you can claim unowned property only if "enough and as good" is left for others.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Maxim</div>
+          <div class="gloss-def">Kant: the personal rule behind an action ("I will do X in order to Y"). The unit of moral evaluation.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Metaethics</div>
+          <div class="gloss-def">The study of ethics itself: what makes moral claims true, whether morality is universal.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Moral exemplar</div>
+          <div class="gloss-def">Virtue ethics: an idealized person whose dispositions guide our judgment.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Natural Law Theory</div>
+          <div class="gloss-def">Aquinas: an act is right if consistent with the rational order built into our nature.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Negative right</div>
+          <div class="gloss-def">A right that imposes a duty <em>not to interfere</em>. Example: private property.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Normative ethics</div>
+          <div class="gloss-def">The branch of ethics that asks what makes actions right or wrong.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Nuremberg Code (1947)</div>
+          <div class="gloss-def">First international guidelines for medical research with humans, written after the Nazi physician trials.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Original Position</div>
+          <div class="gloss-def">Rawls: a thought experiment in which designers choose society's rules from behind a veil of ignorance.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Paternalism</div>
+          <div class="gloss-def">Interfering with someone's autonomy "for their own good." Justified for children, never for competent adults.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Phronesis</div>
+          <div class="gloss-def">Aristotle's "practical wisdom" — the master virtue that knows when and how to apply the others.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Positive right</div>
+          <div class="gloss-def">A right that imposes a duty to <em>provide</em> a good or service. Example: education, healthcare.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Principle of Utility</div>
+          <div class="gloss-def">An action is morally required if it maximizes good and minimizes bad for all affected.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Respect for Persons</div>
+          <div class="gloss-def">Belmont principle: acknowledge autonomy; protect those whose autonomy is diminished.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">SGT / SGE / GLGT / GLGE</div>
+          <div class="gloss-def">Somatic vs. germline, therapy vs. enhancement. Standard view: only SGT is permissible.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Tuskegee Study</div>
+          <div class="gloss-def">1932–1972: U.S. Public Health Service withheld syphilis treatment from 399 African American men. Triggered the Belmont Report.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Universalizability</div>
+          <div class="gloss-def">A maxim is universalizable if it can be willed as a law for everyone without contradiction.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Utilitarianism</div>
+          <div class="gloss-def">The view that morality is determined by the maximization of overall good.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Veil of Ignorance</div>
+          <div class="gloss-def">Rawls: the condition of not knowing your future status when designing society. Ensures impartial choice.</div>
+        </div>
+        <div class="gloss-item">
+          <div class="gloss-term">Virtue</div>
+          <div class="gloss-def">An excellent character trait, embodied in feelings and reactions, not just actions. Lies in the golden mean.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot"><span class="left">Bioethics — A Study Guide</span><span class="right">28 / 34</span></div>
 </section>
 
 <!-- ============= PART V DIVIDER ============= -->
