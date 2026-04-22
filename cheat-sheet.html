@@ -24,43 +24,62 @@
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "ss01", "tnum";
   }
+
   .sheet {
     width: 11in;
     height: 8.5in;
     margin: 0.4in auto;
     background: var(--paper);
     box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-    padding: 0.32in 0.32in 0.32in 0.32in;
+    padding: 0.38in 0.42in 0.38in 0.42in;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    page-break-after: always;
   }
+
   .sheet-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     border-bottom: 1.5px solid var(--ink);
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     flex: 0 0 auto;
   }
   .title {
     font-family: var(--display);
-    font-size: 18pt;
+    font-size: 22pt;
     font-weight: 700;
     color: var(--ink);
-    letter-spacing: -0.022em;
+    letter-spacing: -0.025em;
     line-height: 1;
   }
   .title em { color: var(--muted); font-style: normal; font-weight: 400; }
+  .sheet-head .right-meta {
+    text-align: right;
+  }
   .sub {
     font-family: var(--display);
-    font-size: 7.5pt;
+    font-size: 9pt;
     color: var(--ink);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-weight: 600;
   }
+  .page-tag {
+    display: inline-block;
+    margin-top: 3px;
+    padding: 2px 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
   .cols {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -69,21 +88,22 @@
     min-height: 0;
   }
   .col {
-    padding: 0 10px;
+    padding: 0 14px;
     border-right: 1px solid var(--rule-soft);
     overflow: hidden;
   }
   .col:first-child { padding-left: 0; }
   .col:last-child { border-right: none; padding-right: 0; }
+
   h3 {
     font-family: var(--display);
-    font-size: 7.5pt;
+    font-size: 9pt;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink);
     font-weight: 700;
-    margin: 10px 0 6px;
-    padding-bottom: 3px;
+    margin: 14px 0 9px;
+    padding-bottom: 5px;
     border-bottom: 1px solid var(--ink);
     display: flex;
     justify-content: space-between;
@@ -94,64 +114,67 @@
     font-weight: 500;
     color: var(--muted);
     letter-spacing: 0.08em;
+    font-size: 7.5pt;
   }
+
   .term {
-    margin-bottom: 6px;
-    padding-bottom: 5px;
+    margin-bottom: 9px;
+    padding-bottom: 8px;
     border-bottom: 1px dotted var(--rule-soft);
     break-inside: avoid;
   }
-  .term:last-child { border-bottom: none; }
+  .term:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
   .term-name {
     font-family: var(--display);
-    font-size: 8.5pt;
+    font-size: 10.5pt;
     font-weight: 700;
     color: var(--ink);
-    letter-spacing: -0.005em;
-    line-height: 1.2;
-    margin-bottom: 2px;
+    letter-spacing: -0.008em;
+    line-height: 1.22;
+    margin-bottom: 4px;
   }
   .term-name .meta {
     font-weight: 400;
     color: var(--muted);
-    font-size: 7pt;
+    font-size: 8pt;
     letter-spacing: 0.04em;
   }
   .term-def {
-    font-size: 7.5pt;
-    line-height: 1.42;
+    font-size: 9pt;
+    line-height: 1.55;
     color: var(--sub);
   }
   .term-def strong { color: var(--ink); font-weight: 700; }
   .term-def em { color: var(--ink); font-style: italic; }
 
-  /* Argument block */
+  /* Argument block — black inverse, stands out */
   .arg {
-    margin: 6px 0 8px;
-    padding: 6px 8px;
+    margin: 8px 0 10px;
+    padding: 10px 12px;
     background: var(--ink);
     color: var(--paper);
   }
   .arg-label {
     font-family: var(--display);
-    font-size: 6.5pt;
+    font-size: 7.5pt;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-weight: 600;
     opacity: 0.7;
-    margin-bottom: 3px;
+    margin-bottom: 6px;
   }
   .arg ol {
     margin: 0;
     padding-left: 0;
     list-style: none;
-    font-size: 7.5pt;
-    line-height: 1.4;
+    font-size: 9pt;
+    line-height: 1.5;
+    counter-reset: ac;
   }
   .arg ol li {
     position: relative;
-    padding-left: 14px;
-    margin-bottom: 2px;
+    padding-left: 18px;
+    margin-bottom: 3px;
   }
   .arg ol li::before {
     content: counter(ac) ".";
@@ -162,37 +185,45 @@
     font-weight: 600;
     opacity: 0.7;
   }
-  .arg ol { counter-reset: ac; }
-  .arg ol li:last-child { font-weight: 600; padding-top: 2px; margin-top: 3px; border-top: 1px solid rgba(255,255,255,0.25); }
-  .arg ol li:last-child::before { content: "∴"; opacity: 1; }
+  .arg ol li:last-child {
+    font-weight: 600;
+    padding-top: 4px;
+    margin-top: 5px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+  }
+  .arg ol li:last-child::before { content: "∴"; opacity: 1; font-size: 11pt; }
 
   /* Key dates strip */
   .dates {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0;
     border-top: 1px solid var(--ink);
     border-bottom: 1px solid var(--ink);
-    margin: 4px 0 0;
+    margin: 6px 0;
   }
   .date {
-    padding: 5px 7px;
+    padding: 7px 9px;
     border-right: 1px solid var(--rule-soft);
-    font-size: 7pt;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 8.5pt;
     line-height: 1.3;
   }
-  .date:last-child { border-right: none; }
+  .date:nth-child(2n) { border-right: none; }
+  .date:nth-last-child(-n+2) { border-bottom: none; }
   .date .y {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 8pt;
+    font-size: 10pt;
     color: var(--ink);
     font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
   }
   .date .n {
     color: var(--sub);
     display: block;
-    margin-top: 1px;
+    margin-top: 2px;
+    font-size: 8pt;
   }
 
   .sheet-foot {
@@ -200,40 +231,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 6px;
+    padding-top: 8px;
     border-top: 1.5px solid var(--ink);
-    margin-top: 10px;
+    margin-top: 12px;
     font-family: var(--display);
-    font-size: 6.5pt;
-    letter-spacing: 0.12em;
+    font-size: 8pt;
+    letter-spacing: 0.1em;
     color: var(--muted);
     text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
   }
   .sheet-foot .url {
     color: var(--ink);
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0;
     text-transform: none;
-    font-size: 7pt;
-  }
-
-  /* Inline tag chips */
-  .chip {
-    display: inline-block;
-    font-family: var(--display);
-    font-size: 6pt;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 1px 5px;
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    margin-right: 3px;
-    margin-bottom: 2px;
-  }
-  .chip.solid {
-    background: var(--ink);
-    color: var(--paper);
+    font-size: 8pt;
   }
 
   @page { size: 11in 8.5in landscape; margin: 0; }
@@ -242,68 +255,78 @@
     .sheet { margin: 0; box-shadow: none; }
   }
 
-  /* Responsive: stack on small screens */
+  /* Mobile: stack */
   @media (max-width: 900px) {
     .sheet {
       width: 100%;
       height: auto;
       min-height: 100vh;
-      padding: 20px;
-      margin: 0 auto;
+      padding: 24px;
+      margin: 0 auto 16px;
     }
     .cols { grid-template-columns: 1fr; }
-    .col { border-right: none; border-bottom: 1px solid var(--rule-soft); padding: 12px 0; }
+    .col {
+      border-right: none;
+      border-bottom: 1px solid var(--rule-soft);
+      padding: 14px 0;
+    }
     .col:last-child { border-bottom: none; }
   }
 </style>
 </head>
 <body>
 
+<!-- ============ PAGE 1 ============ -->
 <div class="sheet">
 
   <div class="sheet-head">
     <div>
       <div class="title">Bioethics <em>— Cheat Sheet.</em></div>
     </div>
-    <div style="text-align: right;">
-      <div class="sub">Terms · Principles · Arguments</div>
-      <div style="font-size: 6.5pt; color: var(--muted); letter-spacing: 0.1em; margin-top: 2px;">For Sophia · Midterm</div>
+    <div class="right-meta">
+      <div class="sub">Theories &amp; Principles</div>
+      <div class="page-tag">Page 1 / 2</div>
     </div>
   </div>
 
   <div class="cols">
 
-    <!-- ============= COLUMN 1 — THEORIES + BELMONT ============= -->
+    <!-- ============= COLUMN 1 — PART I THEORIES ============= -->
     <div class="col">
 
       <h3>Part I · Moral Theories <span class="tag">5</span></h3>
 
       <div class="term">
-        <div class="term-name">Utilitarianism <span class="meta">Bentham · Mill</span></div>
-        <div class="term-def"><strong>Principle of Utility:</strong> an action is morally required if it maximizes good and minimizes bad for <em>all</em> those affected. Classical form adopts <strong>hedonism</strong> (pleasure good, pain bad). Weakness: <strong>Surgeon</strong>, <strong>Sheriff</strong> cases — utility can demand injustice.</div>
+        <div class="term-name">Utilitarianism <span class="meta">Bentham · J.S. Mill</span></div>
+        <div class="term-def"><strong>Principle of Utility:</strong> an action is morally required if it maximizes good and minimizes bad for <em>all</em> those affected. Classical form uses <strong>hedonism</strong> (pleasure = good, pain = bad). <strong>Weakness:</strong> Surgeon &amp; Sheriff — utility can demand injustice.</div>
       </div>
 
       <div class="term">
         <div class="term-name">Kantian Ethics <span class="meta">Immanuel Kant</span></div>
-        <div class="term-def">Only the <strong>good will</strong> has moral worth. The <strong>Categorical Imperative</strong>: <strong>F-I (Universal Law)</strong> act only on maxims you can will to be universal. <strong>F-II (Humanity)</strong> treat persons as ends, never merely as means. Weakness: <strong>Inquiring Murderer</strong>, <strong>Lifeboat</strong>.</div>
+        <div class="term-def">Only the <strong>good will</strong> has moral worth. The <strong>Categorical Imperative</strong> has two formulas:<br><strong>F-I (Universal Law):</strong> act only on maxims you can will to become a universal law.<br><strong>F-II (Humanity):</strong> treat persons as ends, never merely as means.<br><strong>Weakness:</strong> Inquiring Murderer, Lifeboat.</div>
       </div>
 
       <div class="term">
         <div class="term-name">Virtue Ethics <span class="meta">Aristotle</span></div>
-        <div class="term-def">An act is right just because a <strong>virtuous person</strong>, acting in character, would do it. Virtues = embedded character traits (honesty, courage, justice). <strong>Golden mean</strong>: virtue lies between two vices. <strong>Phronesis</strong> = practical wisdom, the master virtue.</div>
+        <div class="term-def">An act is right because a <strong>virtuous person</strong>, acting in character, would do it. Virtues are deeply embedded character traits (honesty, courage, justice). Virtue sits at the <strong>golden mean</strong> between two vices. <strong>Phronesis</strong> = practical wisdom, the master virtue. <strong>Weakness:</strong> vague — who counts as the moral exemplar?</div>
       </div>
 
       <div class="term">
         <div class="term-name">Divine Command Theory</div>
-        <div class="term-def">An act is right just because God commands it. Two problems: (1) God may not exist; (2) the <strong>Euthyphro Dilemma</strong> — either God commands what is independently right (DCT collapses) or morality is arbitrary (unacceptable).</div>
+        <div class="term-def">An act is right just because God commands it. <strong>Two problems:</strong> (1) God may not exist; (2) the <strong>Euthyphro Dilemma</strong> — either God commands what is already right (DCT collapses into another theory) or morality is arbitrary (God could make murder right).</div>
       </div>
 
       <div class="term">
-        <div class="term-name">Natural Law Theory <span class="meta">Aquinas</span></div>
-        <div class="term-def">An act is right if consistent with <strong>natural purpose</strong>. Human purposes: life, procreation, knowledge, society, seeking God. Reason discovers the law. Weakness: <strong>Hume's Is–Ought gap</strong> — what is natural isn't always good; what's unnatural isn't always bad.</div>
+        <div class="term-name">Natural Law Theory <span class="meta">Aquinas (1225–1274)</span></div>
+        <div class="term-def">An act is right if consistent with <strong>natural purpose</strong>. Human purposes: life, procreation, knowledge, society, seeking God. Reason discovers the law. <strong>Weakness:</strong> Hume's Is–Ought gap — what's natural isn't always good (sexual aggression); what's unnatural isn't always bad (glasses, contraception).</div>
       </div>
 
-      <h3>Part II · Belmont Principles <span class="tag">3</span></h3>
+    </div>
+
+    <!-- ============= COLUMN 2 — PART II PRINCIPLES ============= -->
+    <div class="col">
+
+      <h3>Part II · Belmont <span class="tag">3 principles</span></h3>
 
       <div class="term">
         <div class="term-name">Respect for Persons</div>
@@ -318,46 +341,112 @@
         <div class="term-def">Distribute the benefits and burdens of research equitably, free of bias.</div>
       </div>
 
-      <h3>Part II · Autonomy &amp; Consent</h3>
+      <h3>Autonomy &amp; Consent</h3>
 
       <div class="term">
-        <div class="term-name">Autonomy</div>
-        <div class="term-def">Rational self-rule. Three conditions: <strong>competence</strong>, <strong>adequate information</strong> (understood), <strong>freedom from coercion</strong>. If any fails, the decision is not autonomous — even for competent adults.</div>
+        <div class="term-name">Autonomy <span class="meta">autos + nomos = self-rule</span></div>
+        <div class="term-def">Rational self-determination. Three conditions for an autonomous decision: <strong>competence</strong>, <strong>adequate information</strong> (actually understood), <strong>freedom from coercion</strong>. If any fails, the decision is <em>not</em> autonomous — even for competent adults.</div>
       </div>
 
       <div class="term">
         <div class="term-name">Informed Consent</div>
-        <div class="term-def">Autonomous authorization of a medical intervention. Same three conditions. Consent is a <strong>process</strong>, not a signed form.</div>
+        <div class="term-def">Autonomous authorization of a medical intervention. Same three conditions as autonomy. Consent is a <strong>process</strong>, not a form — ongoing throughout treatment.</div>
       </div>
 
       <div class="term">
         <div class="term-name">Paternalism</div>
-        <div class="term-def">Overriding autonomy "for the person's own good." Justified for children &amp; severely impaired. <strong>Not</strong> justified for competent adults.</div>
+        <div class="term-def">Overriding autonomy "for a person's own good." <strong>Justified</strong> for children &amp; severely impaired. <strong>Not justified</strong> for competent adults — even if their refusal will lead to death.</div>
       </div>
 
       <div class="term">
         <div class="term-name">Mill's Harm Principle <span class="meta">On Liberty, 1859</span></div>
-        <div class="term-def">The <em>only</em> acceptable reason for interfering with individual liberty is to <strong>prevent harm to others</strong>. Their own good is not sufficient. Rules out paternalism.</div>
+        <div class="term-def">The <em>only</em> acceptable reason for interfering with individual liberty is to <strong>prevent harm to others</strong>. Their own good or happiness is not sufficient. Rules out paternalism for competent adults.</div>
+      </div>
+
+      <h3>Higgs &amp; Wicclair</h3>
+
+      <div class="term">
+        <div class="term-name">Higgs on Truth-Telling</div>
+        <div class="term-def">Lying to patients is almost never permissible. Rejects 3 defenses: <em>complexity</em>, <em>distress</em>, <em>protection from harm</em>. Answer is <strong>better telling</strong>, not lying. "Lying must be a last resort."</div>
+      </div>
+
+      <div class="term">
+        <div class="term-name">Wicclair's 3 Positions <span class="meta">conscientious objection</span></div>
+        <div class="term-def"><strong>Absolutism:</strong> providers may always refuse. <strong>Incompatibilism:</strong> refusal is incompatible with professional duty. <strong>Reasonable accommodation</strong> (middle ground): refuse only if you refer, and the referral doesn't burden the patient.</div>
       </div>
 
     </div>
 
-    <!-- ============= COLUMN 2 — MORE P2 + JUSTICE ============= -->
+    <!-- ============= COLUMN 3 — CASES + DATES ============= -->
     <div class="col">
 
-      <h3>Part II · Higgs &amp; Wicclair</h3>
+      <h3>Cases You Must Know <span class="tag">Parts I & II</span></h3>
 
       <div class="term">
-        <div class="term-name">Higgs on Truth-Telling</div>
-        <div class="term-def">Lying to patients is almost never permissible. Rejects 3 excuses: <em>complexity</em>, <em>distress</em>, <em>protection from harm</em>. Answer is <strong>better telling</strong>, not lying. Lying = last resort.</div>
+        <div class="term-name">The Surgeon <span class="meta">counterex · Utility</span></div>
+        <div class="term-def">Kill 1 healthy patient to harvest organs, save 5 dying patients. Utility requires it; justice forbids it.</div>
       </div>
-
       <div class="term">
-        <div class="term-name">Wicclair's 3 Positions <span class="meta">conscience</span></div>
-        <div class="term-def"><strong>Absolutism:</strong> providers may always refuse. <strong>Incompatibilism:</strong> refusal incompatible with professional duty. <strong>Reasonable accommodation</strong> (middle ground): refuse only if you refer, and referral doesn't burden the patient.</div>
+        <div class="term-name">The Sheriff <span class="meta">counterex · Utility</span></div>
+        <div class="term-def">Frame 1 innocent Black man to appease a lynch mob and save many. Utility requires it; rights forbid it.</div>
+      </div>
+      <div class="term">
+        <div class="term-name">Inquiring Murderer <span class="meta">counterex · Kant</span></div>
+        <div class="term-def">A murderer asks where your friend is hiding. Kant forbids lying even to save a life. Absolute duty produces a grotesque result.</div>
+      </div>
+      <div class="term">
+        <div class="term-name">The Lifeboat <span class="meta">counterex · Kant F-II</span></div>
+        <div class="term-def">11 on a lifeboat built for 10; one is dying from a head wound. Throwing him overboard would save the others — Kant says no, it treats him as a means.</div>
+      </div>
+      <div class="term">
+        <div class="term-name">Elizabeth Bouvia <span class="meta">1986</span></div>
+        <div class="term-def">Quadriplegic refused feeding. California Court of Appeal ruled competent adults have a <em>constitutional</em> right to refuse care. Intentions are <strong>irrelevant</strong>.</div>
+      </div>
+      <div class="term">
+        <div class="term-name">Tuskegee Study <span class="meta">1932 — 1972</span></div>
+        <div class="term-def">399 African American men left untreated for syphilis for 40 years. Triggered the Belmont Report.</div>
+      </div>
+      <div class="term">
+        <div class="term-name">Mr. Johnson's Toe</div>
+        <div class="term-def">Diabetic refuses amputation of a gangrenous toe. If refusal is about <em>means</em> → persuade. If refusal is about <em>values</em> (bodily integrity) → respect.</div>
+      </div>
+      <div class="term">
+        <div class="term-name">BIID <span class="meta">Mill test case</span></div>
+        <div class="term-def">Body Integrity Identity Disorder — desire for amputation of a healthy limb. Stress-tests Mill's harm principle. Parallel to gender dysphoria (not a sexual paraphilia).</div>
       </div>
 
-      <h3>Part III · Justice <span class="tag">Rights</span></h3>
+    </div>
+
+  </div>
+
+  <div class="sheet-foot">
+    <span>Bioethics · Cheat Sheet · Page 1 of 2</span>
+    <span class="url">eyerke.github.io/bioethics-study-guide/cheat-sheet.html</span>
+    <span>→ Page 2 for Justice &amp; Genetics</span>
+  </div>
+
+</div>
+
+
+<!-- ============ PAGE 2 ============ -->
+<div class="sheet">
+
+  <div class="sheet-head">
+    <div>
+      <div class="title">Bioethics <em>— Cheat Sheet.</em></div>
+    </div>
+    <div class="right-meta">
+      <div class="sub">Justice, Genetics &amp; Arguments</div>
+      <div class="page-tag">Page 2 / 2</div>
+    </div>
+  </div>
+
+  <div class="cols">
+
+    <!-- ============= COLUMN 1 — PART III JUSTICE ============= -->
+    <div class="col">
+
+      <h3>Part III · Rights</h3>
 
       <div class="term">
         <div class="term-name">Negative Right</div>
@@ -368,50 +457,72 @@
         <div class="term-def">Imposes a duty to <em>provide</em> a good or service (e.g., education, <strong>healthcare</strong>). "Hand it over."</div>
       </div>
 
-      <h3>Part III · Rawls &amp; Nozick</h3>
+      <h3>Rawls &amp; Nozick <span class="tag">distributive justice</span></h3>
 
       <div class="term">
         <div class="term-name">Rawls — Justice as Fairness <span class="meta">1971</span></div>
-        <div class="term-def"><strong>1st Principle:</strong> equal basic rights for all. <strong>2nd Principle (Difference Principle):</strong> inequalities are just only if they benefit the <em>least-advantaged</em>. Thought experiment: <strong>Original Position</strong> behind the <strong>Veil of Ignorance</strong> — rational designers who don't know their future position would protect the worst-off. → Supports right to healthcare.</div>
+        <div class="term-def"><strong>1st Principle:</strong> equal basic rights &amp; liberties for all.<br><strong>2nd Principle (Difference Principle):</strong> inequalities are just only if they benefit the <em>least-advantaged</em>.<br><strong>Original Position</strong> behind the <strong>Veil of Ignorance</strong>: rational designers who don't know their future position would protect the worst-off. → <strong>Supports a right to healthcare.</strong></div>
       </div>
 
       <div class="term">
         <div class="term-name">Nozick — Justice as Entitlement <span class="meta">1974</span></div>
-        <div class="term-def">Two libertarian rights: <strong>self-ownership</strong> &amp; <strong>power to transfer property</strong>. Three just acquisitions: <strong>just transfer</strong> (voluntary exchange), <strong>just initial acquisition</strong> (Lockean proviso — enough &amp; as good left for others), <strong>just rectification</strong>. Compulsory redistribution = <strong>forced labor</strong>. → No right to healthcare.</div>
+        <div class="term-def">Two libertarian rights: <strong>self-ownership</strong> &amp; <strong>power to transfer</strong>.<br>Three just acquisitions: <strong>transfer</strong> (voluntary exchange), <strong>initial acquisition</strong> (with Lockean proviso — "enough &amp; as good" left for others), <strong>rectification</strong>.<br>Compulsory redistribution = <strong>forced labor</strong>. → <strong>No right to healthcare.</strong></div>
       </div>
 
-      <h3>Part III · Allocation</h3>
+      <h3>Allocation</h3>
 
       <div class="term">
         <div class="term-name">Rescher's 5 Criteria <span class="meta">1969</span></div>
-        <div class="term-def">(1) Likelihood of success · (2) Life-expectancy after treatment · (3) Family role · (4) Future contributions · (5) Past services rendered. "Medical" criteria (1–2) covertly discriminate by age &amp; ability; "social" (3–5) against the solitary &amp; immeasurable.</div>
+        <div class="term-def">(1) Likelihood of success · (2) Life-expectancy after treatment · (3) Family role · (4) Future contributions · (5) Past services.<br>"Medical" criteria (1–2) covertly discriminate by age &amp; ability. "Social" (3–5) discriminate against solitary people &amp; can't be objectively measured.</div>
       </div>
 
       <div class="term">
-        <div class="term-name">Moss &amp; Siegler on ARESLD</div>
-        <div class="term-def">Argue alcoholics should <em>not</em> compete equally for liver transplants. 3 arguments: <strong>Fairness</strong> (never had a healthy liver), <strong>Personal Effort</strong> (treatment was available), <strong>Public Support</strong> (taxpayer backing at risk). Objections: disease impairs seeking treatment; selective vs motorcyclists, obesity.</div>
-      </div>
-
-      <div class="term">
-        <div class="term-name">Harris's Fair Innings</div>
-        <div class="term-def"><strong>Anti-ageist:</strong> every "rest of life" has equal indefinite value. <strong>Fair innings</strong> (≈70): dying before is a tragedy, past it is not. Age IS a factor when one candidate is past threshold (89 vs 2). Age IS NOT a factor when both are below (20 vs 50). 7-minute analogy: 3 vs 4 minutes is equally unjust.</div>
-      </div>
-
-      <h3>Part IV · Genetics Map</h3>
-
-      <div class="term">
-        <div class="term-name">SGT / SGE / GLGT / GLGE</div>
-        <div class="term-def"><strong>Somatic</strong> = this person only · <strong>Germline</strong> = descendants too. <strong>Therapy</strong> = cure · <strong>Enhancement</strong> = augment. Standard view: only <strong>SGT</strong> permissible. Resnik challenges this.</div>
-      </div>
-
-      <div class="term">
-        <div class="term-name">Eugenics — two kinds</div>
-        <div class="term-def"><strong>State-sponsored</strong> (coercive, immoral — Nazi, US, Canada, Sweden). <strong>Parental</strong> (mate selection, donor choice — routine &amp; moral).</div>
+        <div class="term-name">Moss &amp; Siegler · ARESLD</div>
+        <div class="term-def">Argue alcoholics should <em>not</em> compete equally for liver transplants. 3 arguments: <strong>Fairness</strong> (others never had a healthy liver), <strong>Personal Effort</strong> (treatment was available), <strong>Public Support</strong>. Objections: disease impairs treatment-seeking; inconsistent vs. motorcyclists &amp; obesity.</div>
       </div>
 
     </div>
 
-    <!-- ============= COLUMN 3 — ARGUMENTS + CASES + DATES ============= -->
+    <!-- ============= COLUMN 2 — HARRIS + PART IV ============= -->
+    <div class="col">
+
+      <h3>Harris · Fair Innings</h3>
+
+      <div class="term">
+        <div class="term-name">Anti-Ageist Argument</div>
+        <div class="term-def">Every person's "rest of life" has equal indefinite value — we don't know how long any of us have left. Denying the older person is unjust on age alone.</div>
+      </div>
+
+      <div class="term">
+        <div class="term-name">Fair Innings</div>
+        <div class="term-def">≈70 years. Dying before = tragedy; dying past it = misfortune but not unjust. <strong>Age IS a factor</strong> when one candidate has passed the threshold (89 vs. 2). <strong>Age is NOT a factor</strong> when both are below (20 vs. 50). The 7-minute analogy: whether you get 3 or 4 minutes is equally unjust.</div>
+      </div>
+
+      <h3>Part IV · Genetics</h3>
+
+      <div class="term">
+        <div class="term-name">SGT · SGE · GLGT · GLGE</div>
+        <div class="term-def"><strong>Somatic</strong> = this person only · <strong>Germline</strong> = descendants too.<br><strong>Therapy</strong> = cure · <strong>Enhancement</strong> = augment.<br>Standard view: <strong>only SGT is permissible</strong>. Resnik challenges this distinction.</div>
+      </div>
+
+      <div class="term">
+        <div class="term-name">Eugenics · Two Kinds</div>
+        <div class="term-def"><strong>State-sponsored</strong> (coercive sterilization in Nazi Germany, U.S., Canada, Sweden) — <em>immoral</em>. <strong>Parental</strong> (mate selection, donor choice) — <em>routine &amp; moral</em>. Wrongness lies in coercion, not the genetic aim.</div>
+      </div>
+
+      <div class="term">
+        <div class="term-name">Purdy on Reproductive Risk <span class="meta">1996</span></div>
+        <div class="term-def">Case: Huntington's disease. 50% chance of transmission; disease appears 30–50 and ends in death after ~15 years. Purdy: it is impermissible to procreate when risk of serious disease transmission is high. The biological route isn't privileged — adoption &amp; donors are alternatives.</div>
+      </div>
+
+      <div class="term">
+        <div class="term-name">Resnik on Therapy vs. Enhancement</div>
+        <div class="term-def">The line is <em>too blurry</em> to ground moral judgments. All 5 alleged differences fail (see Column 3). Most importantly: parental eugenics is routine, so the eugenics worry dissolves.</div>
+      </div>
+
+    </div>
+
+    <!-- ============= COLUMN 3 — ARGUMENTS + RESNIK + DATES ============= -->
     <div class="col">
 
       <h3>Arguments in Standard Form</h3>
@@ -419,7 +530,7 @@
       <div class="arg">
         <div class="arg-label">Purdy — Reproductive Risk</div>
         <ol>
-          <li>High risk of harm → moral obligation to prevent it.</li>
+          <li>High risk of harm → moral obligation to prevent.</li>
           <li>Procreating with high risk of serious disease = high risk to the child.</li>
           <li>Moral obligation not to procreate when risk is high.</li>
         </ol>
@@ -438,66 +549,34 @@
         <div class="arg-label">Harris — Fair Innings</div>
         <ol>
           <li>Not reasonable to live past one's fair innings at the expense of someone who hasn't reached theirs.</li>
-          <li>Not unjust to save the younger if they haven't reached theirs.</li>
+          <li>Not unjust to save the younger, if they haven't reached theirs.</li>
         </ol>
       </div>
 
-      <h3>Resnik's 5 Claimed Differences <span class="tag">all false</span></h3>
+      <h3>Resnik's 5 Alleged Differences <span class="tag">all fail</span></h3>
+
       <div class="term">
-        <div class="term-def">
-          <strong>1. Therapy promotes health; enhancement doesn't.</strong> False — plastic surgery, braces are permitted.<br>
-          <strong>2. Therapy fits medicine's goals.</strong> False — "health" is contested.<br>
-          <strong>3. Enhancement alters humanness.</strong> False — changing form isn't inherently wrong.<br>
-          <strong>4. Enhancement violates unborn rights.</strong> False — proxy consent works; no right to unmodified germline; may expand open future.<br>
-          <strong>5. Enhancement is eugenics.</strong> Only <em>state</em> eugenics is wrong; parental eugenics is routine.
+        <div class="term-def" style="font-size: 9pt;">
+          <strong>1. "Therapy promotes health; enhancement doesn't."</strong><br>→ Plastic surgery, braces are permitted and don't promote health.<br><br>
+          <strong>2. "Therapy fits medicine's goals."</strong><br>→ "Health" itself is contested; different definitions classify differently.<br><br>
+          <strong>3. "Enhancement alters humanness."</strong><br>→ Changing human form isn't inherently wrong.<br><br>
+          <strong>4. "Enhancement violates unborn rights."</strong><br>→ Proxy consent works. No meaningful right to unmodified germline. May <em>expand</em> open future.<br><br>
+          <strong>5. "Enhancement is eugenics."</strong><br>→ Only coercive <em>state</em> eugenics is wrong; parental is routine.
         </div>
-      </div>
-
-      <h3>Cases You Must Know</h3>
-
-      <div class="term">
-        <div class="term-name">The Surgeon <span class="meta">counterex · Utility</span></div>
-        <div class="term-def">Kill 1 healthy to save 5. Utility requires it; justice forbids it.</div>
-      </div>
-      <div class="term">
-        <div class="term-name">The Sheriff <span class="meta">counterex · Utility</span></div>
-        <div class="term-def">Frame 1 innocent to appease a lynch mob. Utility requires it; rights forbid it.</div>
-      </div>
-      <div class="term">
-        <div class="term-name">Inquiring Murderer <span class="meta">counterex · Kant</span></div>
-        <div class="term-def">Kant forbids lying to save a friend from a murderer. Absoluteness produces grotesque result.</div>
-      </div>
-      <div class="term">
-        <div class="term-name">The Lifeboat <span class="meta">counterex · Kant</span></div>
-        <div class="term-def">Throw the dying man overboard to save 11? Kant: no — using him as a means.</div>
-      </div>
-      <div class="term">
-        <div class="term-name">Elizabeth Bouvia <span class="meta">1986</span></div>
-        <div class="term-def">Quadriplegic refused feeding; California court ruled competent adults have a <em>constitutional</em> right to refuse care. Intentions are <strong>irrelevant</strong>.</div>
-      </div>
-      <div class="term">
-        <div class="term-name">Tuskegee Study <span class="meta">1932–1972</span></div>
-        <div class="term-def">399 African American men left untreated for syphilis for 40 years. Triggered the Belmont Report.</div>
-      </div>
-      <div class="term">
-        <div class="term-name">BIID <span class="meta">Mill test case</span></div>
-        <div class="term-def">Body Integrity Identity Disorder — desire for amputation of a healthy limb. Stress-tests Mill's harm principle. Parallel to gender dysphoria, <em>not</em> a paraphilia.</div>
-      </div>
-      <div class="term">
-        <div class="term-name">Mr. Johnson's Toe</div>
-        <div class="term-def">Gangrenous diabetic refuses amputation. Means-disagreement → persuade. Values-disagreement → respect.</div>
       </div>
 
       <h3>Key Dates</h3>
       <div class="dates">
         <div class="date"><span class="y">500–300 BC</span><span class="n">Hippocratic Oath</span></div>
         <div class="date"><span class="y">1859</span><span class="n">Mill, On Liberty</span></div>
+        <div class="date"><span class="y">1932–72</span><span class="n">Tuskegee Study</span></div>
         <div class="date"><span class="y">1947</span><span class="n">Nuremberg Code</span></div>
         <div class="date"><span class="y">1964</span><span class="n">Helsinki Declaration</span></div>
         <div class="date"><span class="y">1971</span><span class="n">Rawls, Theory of Justice</span></div>
         <div class="date"><span class="y">1974</span><span class="n">Nozick, Anarchy, State</span></div>
         <div class="date"><span class="y">1976</span><span class="n">Belmont Report</span></div>
         <div class="date"><span class="y">1986</span><span class="n">Bouvia ruling</span></div>
+        <div class="date"><span class="y">1996</span><span class="n">Purdy article</span></div>
       </div>
 
     </div>
@@ -505,9 +584,9 @@
   </div>
 
   <div class="sheet-foot">
-    <span>Bioethics · Cheat Sheet</span>
+    <span>Bioethics · Cheat Sheet · Page 2 of 2</span>
     <span class="url">eyerke.github.io/bioethics-study-guide/cheat-sheet.html</span>
-    <span>For deep study → /</span>
+    <span>Study depth → main guide at /</span>
   </div>
 
 </div>
