@@ -27,14 +27,14 @@
 
   .sheet {
     width: 11in;
-    height: 8.5in;
+    min-height: 8.5in;
     margin: 0.4in auto;
     background: var(--paper);
     box-shadow: 0 10px 40px rgba(0,0,0,0.06);
     padding: 0.38in 0.42in 0.38in 0.42in;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
     page-break-after: always;
   }
 
@@ -149,32 +149,32 @@
 
   /* Argument block — black inverse, stands out */
   .arg {
-    margin: 8px 0 10px;
-    padding: 10px 12px;
+    margin: 7px 0 8px;
+    padding: 8px 11px;
     background: var(--ink);
     color: var(--paper);
   }
   .arg-label {
     font-family: var(--display);
-    font-size: 7.5pt;
+    font-size: 7pt;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-weight: 600;
     opacity: 0.7;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .arg ol {
     margin: 0;
     padding-left: 0;
     list-style: none;
-    font-size: 9pt;
-    line-height: 1.5;
+    font-size: 8.5pt;
+    line-height: 1.45;
     counter-reset: ac;
   }
   .arg ol li {
     position: relative;
-    padding-left: 18px;
-    margin-bottom: 3px;
+    padding-left: 16px;
+    margin-bottom: 2px;
   }
   .arg ol li::before {
     content: counter(ac) ".";
@@ -553,15 +553,15 @@
         </ol>
       </div>
 
-      <h3>Resnik's 5 Alleged Differences <span class="tag">all fail</span></h3>
+      <h3>Resnik · 5 Differences <span class="tag">all fail</span></h3>
 
       <div class="term">
-        <div class="term-def" style="font-size: 9pt;">
-          <strong>1. "Therapy promotes health; enhancement doesn't."</strong><br>→ Plastic surgery, braces are permitted and don't promote health.<br><br>
-          <strong>2. "Therapy fits medicine's goals."</strong><br>→ "Health" itself is contested; different definitions classify differently.<br><br>
-          <strong>3. "Enhancement alters humanness."</strong><br>→ Changing human form isn't inherently wrong.<br><br>
-          <strong>4. "Enhancement violates unborn rights."</strong><br>→ Proxy consent works. No meaningful right to unmodified germline. May <em>expand</em> open future.<br><br>
-          <strong>5. "Enhancement is eugenics."</strong><br>→ Only coercive <em>state</em> eugenics is wrong; parental is routine.
+        <div class="term-def">
+          <strong>1. Health promotion</strong> → plastic surgery, braces are permitted.<br>
+          <strong>2. Medicine's goals</strong> → "health" itself is contested.<br>
+          <strong>3. Humanness</strong> → changing form isn't inherently wrong.<br>
+          <strong>4. Unborn rights</strong> → proxy consent works; no right to unmodified germline.<br>
+          <strong>5. Eugenics</strong> → only coercive <em>state</em> eugenics is wrong.
         </div>
       </div>
 
